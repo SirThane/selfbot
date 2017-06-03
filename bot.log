@@ -4242,3 +4242,536 @@ In content: Must be 2000 or fewer in length.
 2017-06-03 03:20:13,713 - WARNING - Unknown event MESSAGE_ACK.
 2017-06-03 03:20:21,464 - WARNING - Unknown event MESSAGE_ACK.
 2017-06-03 03:22:11,707 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:23:22,440 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:24:18,260 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:24:37,376 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:24:43,332 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:24:50,074 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:24:55,007 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:25:13,458 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:25:21,532 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:25:30,175 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:25:36,768 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:26:03,325 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:26:41,442 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:26:52,142 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:27:00,393 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:27:04,498 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:28:28,373 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:28:30,136 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:28:36,641 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:28:51,182 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:28:58,332 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:29:01,041 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:29:19,688 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:29:41,188 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:27:59,644 - INFO - Instance started.
+2017-06-03 14:27:59,650 - INFO - on_command_error has successfully been registered as an event
+2017-06-03 14:27:59,650 - INFO - on_ready has successfully been registered as an event
+2017-06-03 14:27:59,650 - INFO - on_message has successfully been registered as an event
+2017-06-03 14:27:59,654 - INFO - Loaded cogs.admin
+2017-06-03 14:27:59,655 - INFO - logging in using static token
+2017-06-03 14:28:00,620 - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6
+2017-06-03 14:28:00,624 - INFO - Shard ID None has sent the IDENTIFY payload.
+2017-06-03 14:28:00,960 - INFO - Shard ID None has connected to Gateway: discord-gateway-prd-1-10, discord-sessions-prd-1-5 (Session ID: f1a1107613f9cbaacc54fc2e80089e6f).
+2017-06-03 14:28:01,273 - INFO - Processed a chunk for 14 members in guild ID 78716585996455936.
+2017-06-03 14:28:01,448 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,473 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,492 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,564 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,596 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,626 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,645 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,666 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,686 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,706 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,734 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,763 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,828 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:01,848 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,012 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,037 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,056 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,075 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,111 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,129 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,150 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,168 - INFO - Processed a chunk for 853 members in guild ID 81384788765712384.
+2017-06-03 14:28:02,187 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,206 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,225 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,247 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,276 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,307 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,339 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,368 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,399 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,429 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,459 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,511 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,518 - INFO - Processed a chunk for 295 members in guild ID 110373943822540800.
+2017-06-03 14:28:02,536 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,557 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,578 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,606 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,639 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,670 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,697 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,725 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,749 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,773 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,819 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,846 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,867 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,935 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,963 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:02,985 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,006 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,025 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,046 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,067 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,087 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,109 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,137 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,164 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,189 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,191 - INFO - Processed a chunk for 50 members in guild ID 111504456838819840.
+2017-06-03 14:28:03,208 - INFO - Processed a chunk for 692 members in guild ID 117485575237402630.
+2017-06-03 14:28:03,243 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,267 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,338 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,362 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,381 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,402 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,414 - INFO - Processed a chunk for 548 members in guild ID 133049272517001216.
+2017-06-03 14:28:03,415 - INFO - Processed a chunk for 42 members in guild ID 135192009081094144.
+2017-06-03 14:28:03,416 - INFO - Processed a chunk for 56 members in guild ID 142864231140687872.
+2017-06-03 14:28:03,436 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 14:28:03,465 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 14:28:03,491 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 14:28:03,512 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 14:28:03,516 - INFO - Processed a chunk for 97 members in guild ID 173279602586812417.
+2017-06-03 14:28:03,516 - INFO - Processed a chunk for 28 members in guild ID 184502171117551617.
+2017-06-03 14:28:03,551 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 14:28:03,577 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 14:28:03,607 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 14:28:03,639 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 14:28:03,646 - INFO - Processed a chunk for 251 members in guild ID 186640972862586881.
+2017-06-03 14:28:03,646 - INFO - Processed a chunk for 8 members in guild ID 189072717117521930.
+2017-06-03 14:28:03,648 - INFO - Processed a chunk for 53 members in guild ID 199537212348432384.
+2017-06-03 14:28:03,648 - INFO - Processed a chunk for 32 members in guild ID 234240798575558657.
+2017-06-03 14:28:03,652 - INFO - Processed a chunk for 93 members in guild ID 240291349549678594.
+2017-06-03 14:28:03,661 - INFO - Processed a chunk for 383 members in guild ID 267624335836053506.
+2017-06-03 14:28:03,663 - INFO - Processed a chunk for 56 members in guild ID 272127712343228416.
+2017-06-03 14:28:03,664 - INFO - Processed a chunk for 40 members in guild ID 317326371024273408.
+2017-06-03 14:28:03,665 - INFO - Processed a chunk for 30 members in guild ID 319594650434404354.
+2017-06-03 14:28:03,665 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:28:03,666 - INFO - Requesting GUILD_SYNC for 19 guilds
+2017-06-03 14:28:03,666 - INFO - Initialized.
+2017-06-03 14:28:05,854 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:28:12,324 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:28:14,766 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:28:20,157 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:28:42,861 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:29:12,287 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:29:25,448 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:29:48,757 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:30:36,922 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:31:56,397 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:32:14,531 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:32:36,114 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:33:11,344 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:33:36,570 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:33:50,875 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:34:10,417 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:34:17,909 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:34:44,751 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:34:48,166 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:34:51,118 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:36:22,807 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:36:23,631 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:36:32,810 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:36:37,947 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:36:57,945 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:38:01,870 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:38:06,562 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:38:07,621 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:38:42,225 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:38:49,835 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:39:04,389 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:39:55,413 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:40:13,147 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:40:16,677 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:40:27,224 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:40:53,320 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:40:55,844 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:41:08,122 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:41:56,971 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:41:59,530 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:42:21,813 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:42:41,014 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:43:23,745 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:43:25,538 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:43:26,592 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:43:32,280 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:43:40,514 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:43:45,535 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:44:01,514 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:44:20,420 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:44:23,415 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:44:30,834 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:44:56,144 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:03,993 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:45:07,109 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:09,097 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:09,929 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:22,397 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:45:22,781 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:36,719 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:45:37,548 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:41,094 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:45:41,342 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:45:46,292 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:45:59,030 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:46:12,780 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:46:14,381 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:46:25,155 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:46:47,577 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:46:50,528 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:46:56,601 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:47:04,822 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:47:09,133 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:47:19,451 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:47:19,521 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:47:24,118 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:47:42,595 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:47:53,279 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:48:03,452 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:48:07,327 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:48:11,201 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:48:48,551 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:49:04,877 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:49:12,693 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:49:32,743 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:49:48,075 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:49:54,975 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 14:51:12,695 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:52:13,468 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:52:26,862 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:52:54,798 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:53:05,737 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:54:00,906 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:54:37,956 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:54:39,278 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:54:48,678 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:54:51,639 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:55:20,000 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:55:54,674 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:03,061 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:07,582 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:15,294 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:20,853 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:22,294 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:43,288 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:56:50,294 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:57:25,549 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:57:33,580 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:57:50,453 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:58:07,876 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:58:42,052 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:59:19,174 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 14:59:44,028 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:00:47,167 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:00:59,002 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:01:24,480 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:01:40,670 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:02:37,082 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:03:11,050 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:03:50,964 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:05,503 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:26,768 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:30,250 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:32,562 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:45,634 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:04:50,631 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:05:39,386 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:06:07,594 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:06:46,756 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:06:53,062 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:07:15,162 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:07:23,042 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:07:53,466 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:07:54,636 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:08:39,443 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:08:42,974 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:08:58,066 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:09:23,106 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:10:40,042 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:11:45,321 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:11:53,935 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:12:01,002 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:12:08,648 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:12:09,791 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:12:13,725 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:12:19,301 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:12:47,562 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:13:12,881 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:13:17,902 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:13:21,994 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:13:41,702 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:13:49,485 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:13:53,046 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:14:25,340 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:15:11,809 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:15:11,924 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:15:24,570 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:15:30,457 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:15:31,305 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:15:49,258 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:16:00,530 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:16:09,904 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:16:15,451 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:16:18,735 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:16:39,791 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:16:48,586 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:16:59,382 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:08,514 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:13,132 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:15,839 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:18,524 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:17:24,471 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:33,384 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:17:36,178 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:18:00,309 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:18:29,635 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:18:33,459 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:18:37,208 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:18:57,105 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:19:02,397 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:20:50,695 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:21:22,131 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:24:33,168 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:25:39,061 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:27:28,628 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:28:09,905 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:31:37,380 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:32:25,825 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:32:54,651 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:33:08,362 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:33:09,921 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:33:34,058 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:33:40,640 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:35:42,182 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:39:56,392 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:42:33,122 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:45:24,677 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:45:35,167 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:45:55,374 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:46:14,223 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:47:13,571 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:47:39,373 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:25,077 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:27,068 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:29,340 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:39,344 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:46,335 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:49:59,560 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:51:15,187 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:51:15,192 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:53:14,645 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:53:56,376 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:54:05,145 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 15:54:56,480 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:56:41,415 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 15:58:45,735 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:00:13,360 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:00:16,821 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:02:40,190 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:03:03,424 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:03:46,735 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:04:01,207 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:05:55,778 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:06:01,212 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:07:03,609 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:07:37,937 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:07:55,987 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:09:48,032 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:09:53,893 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:10:57,801 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:11:05,258 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:11:29,413 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:11:37,365 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:11:51,033 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:12:29,244 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:12:31,263 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:12:32,398 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:12:35,314 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:12:35,316 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:12:51,959 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:12:57,705 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:13:00,657 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:13:03,565 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:13:20,123 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:13:21,457 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:13:27,738 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:14:12,237 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:14:50,624 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:15:35,556 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:15:38,335 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:15:38,366 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:15:44,865 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:16:07,188 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:16:09,278 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:16:10,472 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:17:38,388 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:17:40,596 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:17:47,333 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:17:49,637 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:18:02,570 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:18:43,254 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:19:12,012 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:19:21,210 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:21:58,201 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:22:47,455 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:22:52,291 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:23:25,632 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:26:09,323 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:26:52,420 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:27:01,344 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:28:28,183 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:30:54,589 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:31:24,196 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:33:24,211 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:33:37,122 - INFO - Instance started.
+2017-06-03 16:33:37,123 - INFO - on_command_error has successfully been registered as an event
+2017-06-03 16:33:37,123 - INFO - on_ready has successfully been registered as an event
+2017-06-03 16:33:37,123 - INFO - on_message has successfully been registered as an event
+2017-06-03 16:33:37,124 - INFO - Loaded cogs.admin
+2017-06-03 16:33:37,124 - INFO - logging in using static token
+2017-06-03 16:33:38,071 - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6
+2017-06-03 16:33:38,074 - INFO - Shard ID None has sent the IDENTIFY payload.
+2017-06-03 16:33:38,603 - INFO - Shard ID None has connected to Gateway: discord-gateway-prd-1-28, discord-sessions-prd-1-10 (Session ID: 197a74eb2cfe6cdc60879d70f2775a9e).
+2017-06-03 16:33:38,911 - INFO - Processed a chunk for 14 members in guild ID 78716585996455936.
+2017-06-03 16:33:39,140 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,232 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,341 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,434 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,476 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,582 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,617 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,695 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,734 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,810 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,849 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,906 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,931 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:39,973 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,013 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,069 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,148 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,172 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,219 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,241 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,271 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,301 - INFO - Processed a chunk for 861 members in guild ID 81384788765712384.
+2017-06-03 16:33:40,333 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,363 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,395 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,425 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,455 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,485 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,516 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,549 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,578 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,607 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,637 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,686 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,694 - INFO - Processed a chunk for 305 members in guild ID 110373943822540800.
+2017-06-03 16:33:40,712 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,732 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,840 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,862 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,893 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,927 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,953 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:40,975 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,000 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,027 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,095 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,114 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,134 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,183 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,204 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,224 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,245 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,266 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,286 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,308 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,332 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,356 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,378 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,405 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,429 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,432 - INFO - Processed a chunk for 51 members in guild ID 111504456838819840.
+2017-06-03 16:33:41,444 - INFO - Processed a chunk for 691 members in guild ID 117485575237402630.
+2017-06-03 16:33:41,476 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,504 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,573 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,598 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,621 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,643 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,653 - INFO - Processed a chunk for 548 members in guild ID 133049272517001216.
+2017-06-03 16:33:41,654 - INFO - Processed a chunk for 42 members in guild ID 135192009081094144.
+2017-06-03 16:33:41,656 - INFO - Processed a chunk for 56 members in guild ID 142864231140687872.
+2017-06-03 16:33:41,676 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 16:33:41,695 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 16:33:41,715 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 16:33:41,735 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 16:33:41,738 - INFO - Processed a chunk for 98 members in guild ID 173279602586812417.
+2017-06-03 16:33:41,739 - INFO - Processed a chunk for 28 members in guild ID 184502171117551617.
+2017-06-03 16:33:41,762 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 16:33:41,792 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 16:33:41,819 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 16:33:41,848 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 16:33:41,854 - INFO - Processed a chunk for 253 members in guild ID 186640972862586881.
+2017-06-03 16:33:41,854 - INFO - Processed a chunk for 8 members in guild ID 189072717117521930.
+2017-06-03 16:33:41,856 - INFO - Processed a chunk for 53 members in guild ID 199537212348432384.
+2017-06-03 16:33:41,857 - INFO - Processed a chunk for 32 members in guild ID 234240798575558657.
+2017-06-03 16:33:41,859 - INFO - Processed a chunk for 93 members in guild ID 240291349549678594.
+2017-06-03 16:33:41,868 - INFO - Processed a chunk for 387 members in guild ID 267624335836053506.
+2017-06-03 16:33:41,870 - INFO - Processed a chunk for 56 members in guild ID 272127712343228416.
+2017-06-03 16:33:41,871 - INFO - Processed a chunk for 40 members in guild ID 317326371024273408.
+2017-06-03 16:33:41,871 - INFO - Processed a chunk for 30 members in guild ID 319594650434404354.
+2017-06-03 16:33:41,872 - INFO - Requesting GUILD_SYNC for 19 guilds
+2017-06-03 16:33:41,872 - INFO - Initialized.
+2017-06-03 16:35:29,977 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:38:23,926 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:39:30,886 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:39:34,540 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:39:42,823 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:40:34,286 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:40:37,310 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:40:40,095 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:41:25,095 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:41:32,609 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:42:40,210 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:42:42,073 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:42:47,000 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:42:49,028 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:42:49,296 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:42:52,313 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:42:54,130 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:43:03,795 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:43:10,214 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:43:12,021 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:43:56,223 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:44:06,886 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:44:10,171 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:44:18,482 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:44:30,379 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:44:49,511 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:45:00,154 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:45:12,060 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:46:47,257 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 16:47:02,071 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 16:47:20,042 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
