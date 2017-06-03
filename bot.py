@@ -29,6 +29,7 @@ prefix = [">>> "]
 initial_extensions = [
     "cogs.admin",
     "cogs.general",
+    "cogs.test"
 ]
 
 description = "me irl"
@@ -36,6 +37,7 @@ description = "me irl"
 try:
     with open('auth.json', 'r+') as json_auth_info:
         auth = json.load(json_auth_info)
+        token = auth["discord"]["token"]
 except IOError:
     sys.exit("auth.json not found in running directory.")
 
@@ -63,14 +65,14 @@ async def init_timed_events(bot):
 
 
 @bot.event
-async def on_command_error(error, ctx):
+async def on_command_error(ctx, error):
     if isinstance(error, commands.NoPrivateMessage):
-        await self.bot.send_message(ctx.message.author, 'This command cannot be used in private messages.')
+        await bot.edit_message(ctx.message.author, 'This command cannot be used in private messages.')
     elif isinstance(error, commands.DisabledCommand):
-        await self.bot.send_message(ctx.message.author, 'This command is disabled and cannot be used.')
+        await bot.send_message(ctx.message.author, 'This command is disabled and cannot be used.')
     elif isinstance(error, commands.MissingRequiredArgument):
         help_formatter = commands.formatter.HelpFormatter()
-        await self.bot.send_message(ctx.message.channel,
+        await bot.send_message(ctx.message.channel,
                                "You are missing required arguments.\n{}".format(help_formatter.format_help_for(ctx, ctx.command)[0]))
     elif isinstance(error, commands.CommandInvokeError):
         print('In {0.command.qualified_name}:'.format(ctx), file=sys.stderr)
@@ -79,7 +81,15 @@ async def on_command_error(error, ctx):
         log.error('In {0.command.qualified_name}:'.format(ctx))
         log.error('{0.__class__.__name__}: {0}'.format(error.original))
     else:
-        traceback.print_tb(error.__traceback__, file=sys.stderr)
+        traceback.print_tb(error.original.__traceback__, file=sys.stderr)
+        # traceback.print_tb(error, file=sys.stderr)
+        # print("on_command_error was triggered.")
+        # print(error.args)
+        # print(error.kwargs)
+        # print(ctx.args)
+        # print(ctx.kwargs)
+        # str(error)
+        # print(dir(error))
 
 
 @bot.event
@@ -94,10 +104,9 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-
     await bot.process_commands(message)
 
-bot.config = Config("config.json")
+# bot.config = Config("config.json")
 
 # Starting up
 
@@ -110,4 +119,4 @@ if __name__ == "__main__":
             log.warning('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
             print('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
 
-        bot.run(auth["discord"]["token"], bot=False)
+        bot.run(token, bot=False)
