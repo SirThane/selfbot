@@ -77,7 +77,7 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.CommandInvokeError):
         print('In {0.command.qualified_name}:'.format(ctx), file=sys.stderr)
         print('{0.__class__.__name__}: {0}'.format(error.original), file=sys.stderr)
-        traceback.print_tb(error.original.__traceback__, file=sys.stderr)
+        traceback.print_tb(error.__traceback__, file=sys.stderr)
         log.error('In {0.command.qualified_name}:'.format(ctx))
         log.error('{0.__class__.__name__}: {0}'.format(error.original))
     else:

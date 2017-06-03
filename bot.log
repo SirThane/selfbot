@@ -3815,3 +3815,430 @@
 2017-06-03 02:13:13,430 - INFO - Initialized.
 2017-06-03 02:14:29,518 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
 2017-06-03 02:14:42,641 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:15:56,284 - INFO - Instance started.
+2017-06-03 02:15:56,285 - INFO - on_command_error has successfully been registered as an event
+2017-06-03 02:15:56,285 - INFO - on_ready has successfully been registered as an event
+2017-06-03 02:15:56,285 - INFO - on_message has successfully been registered as an event
+2017-06-03 02:15:56,286 - INFO - Loaded cogs.admin
+2017-06-03 02:15:56,286 - INFO - logging in using static token
+2017-06-03 02:15:56,981 - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6
+2017-06-03 02:15:56,983 - INFO - Shard ID None has sent the IDENTIFY payload.
+2017-06-03 02:15:57,304 - INFO - Shard ID None has connected to Gateway: discord-gateway-prd-1-25, discord-sessions-prd-1-7 (Session ID: 48b4fe652675cdaa72938a4dc1a161f2).
+2017-06-03 02:15:57,524 - INFO - Processed a chunk for 14 members in guild ID 78716585996455936.
+2017-06-03 02:15:57,675 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,699 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,723 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,760 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,781 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,803 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,828 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,874 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,904 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,924 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,946 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,967 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:57,989 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,019 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,043 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,071 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,100 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,125 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,164 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,185 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,318 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,400 - INFO - Processed a chunk for 826 members in guild ID 81384788765712384.
+2017-06-03 02:15:58,421 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,439 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,459 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,476 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,495 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,514 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,578 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,598 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,618 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,651 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,679 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,729 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,736 - INFO - Processed a chunk for 234 members in guild ID 110373943822540800.
+2017-06-03 02:15:58,754 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,773 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,793 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,814 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,841 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,870 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,892 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,919 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,946 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,972 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:58,998 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,023 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,051 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,104 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,124 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,144 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,162 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,181 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,205 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,232 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,258 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,285 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,308 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,347 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,376 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,377 - INFO - Processed a chunk for 30 members in guild ID 111504456838819840.
+2017-06-03 02:15:59,395 - INFO - Processed a chunk for 690 members in guild ID 117485575237402630.
+2017-06-03 02:15:59,418 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,437 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,512 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,533 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,554 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,578 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,589 - INFO - Processed a chunk for 546 members in guild ID 133049272517001216.
+2017-06-03 02:15:59,590 - INFO - Processed a chunk for 42 members in guild ID 135192009081094144.
+2017-06-03 02:15:59,592 - INFO - Processed a chunk for 56 members in guild ID 142864231140687872.
+2017-06-03 02:15:59,705 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:15:59,729 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:15:59,750 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:15:59,768 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:15:59,770 - INFO - Processed a chunk for 97 members in guild ID 173279602586812417.
+2017-06-03 02:15:59,771 - INFO - Processed a chunk for 27 members in guild ID 184502171117551617.
+2017-06-03 02:15:59,792 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:15:59,813 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:15:59,834 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:15:59,856 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:15:59,863 - INFO - Processed a chunk for 242 members in guild ID 186640972862586881.
+2017-06-03 02:15:59,863 - INFO - Processed a chunk for 8 members in guild ID 189072717117521930.
+2017-06-03 02:15:59,865 - INFO - Processed a chunk for 53 members in guild ID 199537212348432384.
+2017-06-03 02:15:59,866 - INFO - Processed a chunk for 32 members in guild ID 234240798575558657.
+2017-06-03 02:15:59,868 - INFO - Processed a chunk for 93 members in guild ID 240291349549678594.
+2017-06-03 02:15:59,877 - INFO - Processed a chunk for 379 members in guild ID 267624335836053506.
+2017-06-03 02:15:59,879 - INFO - Processed a chunk for 56 members in guild ID 272127712343228416.
+2017-06-03 02:15:59,880 - INFO - Processed a chunk for 39 members in guild ID 317326371024273408.
+2017-06-03 02:15:59,881 - INFO - Processed a chunk for 30 members in guild ID 319594650434404354.
+2017-06-03 02:15:59,881 - INFO - Requesting GUILD_SYNC for 19 guilds
+2017-06-03 02:15:59,882 - INFO - Initialized.
+2017-06-03 02:16:02,279 - INFO - Instance started.
+2017-06-03 02:16:02,279 - INFO - on_command_error has successfully been registered as an event
+2017-06-03 02:16:02,280 - INFO - on_ready has successfully been registered as an event
+2017-06-03 02:16:02,280 - INFO - on_message has successfully been registered as an event
+2017-06-03 02:16:02,281 - INFO - Loaded cogs.admin
+2017-06-03 02:16:02,281 - INFO - logging in using static token
+2017-06-03 02:16:03,226 - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6
+2017-06-03 02:16:03,228 - INFO - Shard ID None has sent the IDENTIFY payload.
+2017-06-03 02:16:03,611 - INFO - Shard ID None has connected to Gateway: discord-gateway-prd-1-7, discord-sessions-prd-1-3 (Session ID: 6a05fa6c667828a5664556fd808d1d23).
+2017-06-03 02:16:03,635 - WARNING - VOICE_STATE_UPDATE referencing an unknown member ID: 164694119413841920. Discarding.
+2017-06-03 02:16:03,852 - INFO - Processed a chunk for 14 members in guild ID 78716585996455936.
+2017-06-03 02:16:03,970 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,012 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,039 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,074 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,096 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,120 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,159 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,182 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,202 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,222 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,248 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,277 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,299 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,320 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,349 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,385 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,406 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,429 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,472 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,496 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,517 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,554 - INFO - Processed a chunk for 826 members in guild ID 81384788765712384.
+2017-06-03 02:16:04,583 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,728 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,750 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,773 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,795 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,815 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,840 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,864 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,885 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,908 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,929 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,981 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:16:04,987 - INFO - Processed a chunk for 234 members in guild ID 110373943822540800.
+2017-06-03 02:16:05,006 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,027 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,047 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,068 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,094 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,120 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,145 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,169 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,198 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,222 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,252 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,280 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,304 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,353 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,374 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,396 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,416 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,436 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,457 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,481 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,504 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,549 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,575 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,595 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,627 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,630 - INFO - Processed a chunk for 30 members in guild ID 111504456838819840.
+2017-06-03 02:16:05,642 - INFO - Processed a chunk for 690 members in guild ID 117485575237402630.
+2017-06-03 02:16:05,675 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,703 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,764 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,789 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,808 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,829 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,840 - INFO - Processed a chunk for 546 members in guild ID 133049272517001216.
+2017-06-03 02:16:05,841 - INFO - Processed a chunk for 42 members in guild ID 135192009081094144.
+2017-06-03 02:16:05,842 - INFO - Processed a chunk for 56 members in guild ID 142864231140687872.
+2017-06-03 02:16:05,862 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:16:05,882 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:16:05,903 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:16:05,931 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:16:05,934 - INFO - Processed a chunk for 97 members in guild ID 173279602586812417.
+2017-06-03 02:16:05,935 - INFO - Processed a chunk for 27 members in guild ID 184502171117551617.
+2017-06-03 02:16:05,962 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:16:05,992 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:16:06,021 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:16:06,047 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:16:06,053 - INFO - Processed a chunk for 242 members in guild ID 186640972862586881.
+2017-06-03 02:16:06,054 - INFO - Processed a chunk for 8 members in guild ID 189072717117521930.
+2017-06-03 02:16:06,055 - INFO - Processed a chunk for 53 members in guild ID 199537212348432384.
+2017-06-03 02:16:06,056 - INFO - Processed a chunk for 32 members in guild ID 234240798575558657.
+2017-06-03 02:16:06,058 - INFO - Processed a chunk for 93 members in guild ID 240291349549678594.
+2017-06-03 02:16:06,067 - INFO - Processed a chunk for 379 members in guild ID 267624335836053506.
+2017-06-03 02:16:06,068 - INFO - Processed a chunk for 56 members in guild ID 272127712343228416.
+2017-06-03 02:16:06,069 - INFO - Processed a chunk for 39 members in guild ID 317326371024273408.
+2017-06-03 02:16:06,070 - INFO - Processed a chunk for 30 members in guild ID 319594650434404354.
+2017-06-03 02:16:06,070 - INFO - Requesting GUILD_SYNC for 19 guilds
+2017-06-03 02:16:06,071 - INFO - Initialized.
+2017-06-03 02:18:17,378 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:19:27,576 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:19:49,050 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:20:04,844 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:20:18,792 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:20:43,277 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:21:41,985 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:22:36,858 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:27:23,667 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:27:53,690 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:28:02,467 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:28:58,568 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:34:05,198 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:34:45,934 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:35:39,822 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:37:34,631 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:40:08,332 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:40:09,145 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:40:20,672 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:41:53,193 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:41:58,526 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:42:18,535 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:42:58,472 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:43:10,652 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:43:13,275 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:44:29,735 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:44:34,878 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:44:45,479 - WARNING - Unknown event CHANNEL_PINS_ACK.
+2017-06-03 02:44:59,597 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:45:03,134 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:45:33,247 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:45:38,679 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:45:45,688 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:46:03,938 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:46:15,274 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:46:18,626 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:46:45,304 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:47:52,888 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:48:37,471 - INFO - Instance started.
+2017-06-03 02:48:37,472 - INFO - on_command_error has successfully been registered as an event
+2017-06-03 02:48:37,473 - INFO - on_ready has successfully been registered as an event
+2017-06-03 02:48:37,473 - INFO - on_message has successfully been registered as an event
+2017-06-03 02:48:37,487 - INFO - Loaded cogs.admin
+2017-06-03 02:48:37,488 - INFO - logging in using static token
+2017-06-03 02:48:38,367 - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6
+2017-06-03 02:48:38,369 - INFO - Shard ID None has sent the IDENTIFY payload.
+2017-06-03 02:48:38,681 - INFO - Shard ID None has connected to Gateway: discord-gateway-prd-1-10, discord-sessions-prd-1-5 (Session ID: 0708101c937172a5cfcd3f9712744d65).
+2017-06-03 02:48:38,918 - INFO - Processed a chunk for 14 members in guild ID 78716585996455936.
+2017-06-03 02:48:39,089 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,141 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,162 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,197 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,222 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,244 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,264 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,357 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,470 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,492 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,511 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,533 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,552 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,573 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,592 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,621 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,645 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,678 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,725 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,747 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,768 - INFO - Processed a chunk for 1000 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,802 - INFO - Processed a chunk for 824 members in guild ID 81384788765712384.
+2017-06-03 02:48:39,822 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,841 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,860 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,890 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,921 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,948 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:39,975 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,004 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,033 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,063 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,088 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,140 - INFO - Processed a chunk for 1000 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,147 - INFO - Processed a chunk for 239 members in guild ID 110373943822540800.
+2017-06-03 02:48:40,165 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,185 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,206 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,232 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,256 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,281 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,306 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,330 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,358 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,383 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,412 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,436 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,462 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,535 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,557 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,575 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,595 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,616 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,641 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,665 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,690 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,719 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,744 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,768 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,793 - INFO - Processed a chunk for 1000 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,796 - INFO - Processed a chunk for 33 members in guild ID 111504456838819840.
+2017-06-03 02:48:40,808 - INFO - Processed a chunk for 690 members in guild ID 117485575237402630.
+2017-06-03 02:48:40,837 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:40,863 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:40,924 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:40,944 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:40,966 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:40,987 - INFO - Processed a chunk for 1000 members in guild ID 133049272517001216.
+2017-06-03 02:48:41,000 - INFO - Processed a chunk for 546 members in guild ID 133049272517001216.
+2017-06-03 02:48:41,001 - INFO - Processed a chunk for 42 members in guild ID 135192009081094144.
+2017-06-03 02:48:41,002 - INFO - Processed a chunk for 56 members in guild ID 142864231140687872.
+2017-06-03 02:48:41,022 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:48:41,045 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:48:41,069 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:48:41,097 - INFO - Processed a chunk for 1000 members in guild ID 173279602586812417.
+2017-06-03 02:48:41,101 - INFO - Processed a chunk for 97 members in guild ID 173279602586812417.
+2017-06-03 02:48:41,101 - INFO - Processed a chunk for 27 members in guild ID 184502171117551617.
+2017-06-03 02:48:41,131 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:48:41,156 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:48:41,181 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:48:41,210 - INFO - Processed a chunk for 1000 members in guild ID 186640972862586881.
+2017-06-03 02:48:41,217 - INFO - Processed a chunk for 243 members in guild ID 186640972862586881.
+2017-06-03 02:48:41,217 - INFO - Processed a chunk for 8 members in guild ID 189072717117521930.
+2017-06-03 02:48:41,218 - INFO - Processed a chunk for 53 members in guild ID 199537212348432384.
+2017-06-03 02:48:41,219 - INFO - Processed a chunk for 32 members in guild ID 234240798575558657.
+2017-06-03 02:48:41,222 - INFO - Processed a chunk for 93 members in guild ID 240291349549678594.
+2017-06-03 02:48:41,232 - INFO - Processed a chunk for 379 members in guild ID 267624335836053506.
+2017-06-03 02:48:41,235 - INFO - Processed a chunk for 56 members in guild ID 272127712343228416.
+2017-06-03 02:48:41,236 - INFO - Processed a chunk for 39 members in guild ID 317326371024273408.
+2017-06-03 02:48:41,237 - INFO - Processed a chunk for 30 members in guild ID 319594650434404354.
+2017-06-03 02:48:41,238 - INFO - Requesting GUILD_SYNC for 19 guilds
+2017-06-03 02:48:41,239 - INFO - Initialized.
+2017-06-03 02:48:57,219 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 02:50:00,304 - ERROR - In ujd:
+2017-06-03 02:50:00,304 - ERROR - TypeError: argument of type 'int' is not iterable
+2017-06-03 02:50:57,284 - ERROR - In eval:
+2017-06-03 02:50:57,284 - ERROR - HTTPException: BAD REQUEST (status code: 400): Invalid Form Body
+In content: Must be 2000 or fewer in length.
+2017-06-03 02:53:03,769 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:54:56,192 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:56:00,627 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 02:59:02,482 - ERROR - In ujd:
+2017-06-03 02:59:02,482 - ERROR - TypeError: object Member can't be used in 'await' expression
+2017-06-03 03:00:06,266 - ERROR - In ujd:
+2017-06-03 03:00:06,266 - ERROR - NameError: name 'mem' is not defined
+2017-06-03 03:00:38,460 - ERROR - In ujd:
+2017-06-03 03:00:38,460 - ERROR - AttributeError: 'NoneType' object has no attribute 'name'
+2017-06-03 03:00:58,665 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:01:27,589 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:04:32,042 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:05:10,486 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:05:25,945 - ERROR - In ujd:
+2017-06-03 03:05:25,946 - ERROR - TypeError: edit() takes 1 positional argument but 2 were given
+2017-06-03 03:06:29,514 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:06:31,063 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:07:21,330 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:07:48,333 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:08:38,427 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:08:39,663 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:08:53,694 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:08:58,106 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:09:01,766 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:09:09,063 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:09:37,781 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:09:41,872 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:09:44,972 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:10:19,180 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:10:31,234 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:10:41,145 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:11:54,243 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:11:57,892 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:11:58,030 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:12:15,337 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:12:32,078 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:12:35,355 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:12:40,985 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:12:43,872 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:13:01,899 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:13:05,201 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:13:12,603 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:13:33,422 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:13:33,738 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:13:53,865 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:13:58,382 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:14:00,853 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:14:13,100 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:14:24,966 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:14:31,190 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:14:35,467 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:00,768 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:18,372 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:24,450 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:15:26,101 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:28,252 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:36,995 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:40,558 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:44,005 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:51,263 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:15:58,995 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:16:03,229 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:16:06,483 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:16:20,368 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:17:04,666 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:17:20,929 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:18:09,020 - WARNING - PRESENCE_UPDATE referencing an unknown guild ID: None. Discarding.
+2017-06-03 03:18:21,271 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:18:29,914 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:18:32,362 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:19:09,493 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:19:37,205 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:20:07,145 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:20:13,713 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:20:21,464 - WARNING - Unknown event MESSAGE_ACK.
+2017-06-03 03:22:11,707 - WARNING - Unknown event MESSAGE_ACK.

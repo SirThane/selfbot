@@ -20,7 +20,7 @@ class General:
     async def lmgtfy(self, ctx, *, link: str):
         """Gives a lmgtfy link to an input."""
         params = {"q": link}
-        await self.bot.edit_message(ctx.msesage, "http://lmgtfy.com/?{0}".format(urlencode(params)))
+        await ctx.message.edit(content="http://lmgtfy.com/?{0}".format(urlencode(params)))
 
     # @commands.command(pass_context=True)
     # async def giz(self, ctx, *, text: str):
@@ -39,7 +39,7 @@ class General:
 
         if rolls == 1:  # Just !roll 3
             num = randint(1, abs(sides))
-            await self.bot.edit_message(ctx.message, "Rolled {}".format(num))
+            await ctx.message.edit(content="Rolled {}".format(num))
 
         else:  # !roll 3 4
             max_rolls = 30
@@ -49,7 +49,7 @@ class General:
                 rolls = max_rolls
 
             elif rolls < 0 or sides < 1:
-                await self.bot.edit_message(ctx.message, "Value too low.")
+                await ctx.message.edit(content="Value too low.")
                 return
 
             output += "Rolling {}d{}:\n".format(rolls, sides)
@@ -57,7 +57,7 @@ class General:
                 roll_result = randint(1, sides)
                 output += "`{}` ".format(roll_result)
 
-            await self.bot.edit_message(ctx.message, output)
+            await ctx.message.edit(content=output)
 
     @commands.command(pass_context=True)
     async def ri(self, ctx, *, text: str):
@@ -70,7 +70,7 @@ class General:
             else:
                 output += char
 
-        await self.bot.edit_message(ctx.message, output)
+        await ctx.message.edit(content=output)
 
     @commands.command(pass_context=True, aliases=["game"])
     async def set_game(self, ctx, *, game: str=None):
@@ -78,7 +78,7 @@ class General:
             await self.bot.change_presence(game=discord.Game(name=game))
         else:
             await self.bot.change_presence(game=None)
-        await self.bot.edit_message(ctx.message, "```\nGame set to {}.```".format(game))
+        await ctx.message.edit(content="```\nGame set to {}.```".format(game))
 
     @commands.command(pass_context=True)
     async def purge(self, ctx, messages: int=-1):
@@ -104,19 +104,18 @@ class General:
     #                                     "M*)(B8mdu98vuw09vmdfj",
     #                                     embed=embed)
 
-    @commands.command(pass_context=True, aliases=["ujd"])
-    async def _joined(self, ctx, uid: str): ### MAKE THIS AN EMBED WITH USER AVATAR
+    @commands.command(pass_context=True, name="ujd")
+    async def _joined(self, ctx, uid: int): ### MAKE THIS AN EMBED WITH USER AVATAR
         """[p]ujd <userid>
 
         Returns member.joined_at for member on current guild."""
         svr = ctx.message.author.guild
-        try:
-            mem = [m for m in svr.members if uid in m.id][0]
-        except IndexError:
-            await self.bot.edit_message(ctx.message, '```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
+        usr = discord.utils.get(svr.members, id=uid)
+        if usr is not None:
+            reply = '```py\n"{0.display_name} ({0})" joined "{1.name}" on:\n{0.joined_at}\n```'.format(usr, svr)
+            await ctx.message.edit(content=reply)
         else:
-            reply = '```py\n"{0.display_name} ({0})" joined "{1.name}" on:\n{0.joined_at}\n```'.format(mem, svr)
-            await self.bot.say(reply)
+            await ctx.message.edit(content='```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
             # try:
             #     await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
             # except AttributeError:

@@ -81,7 +81,7 @@ class Admin:
             if inspect.isawaitable(result):
                 result = await result
         except Exception as e:
-            await self.bot.edit_message(ctx.message, ctx.message.channel, python.format(code, type(e).__name__ + ': ' + str(e)))
+            await ctx.message.edit(content=python.format(code, type(e).__name__ + ': ' + str(e)))
             return
 
         await ctx.message.edit(content=python.format(code, result))
