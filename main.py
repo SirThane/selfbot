@@ -8,7 +8,7 @@ This bot has been hijacked by Thane. :^)
 import json
 import logging
 import sys
-from cogs.utils.config import Config
+# from cogs.utils.config import Config
 from discord.ext import commands
 import asyncio
 import traceback
@@ -17,7 +17,7 @@ loop = asyncio.get_event_loop()
 
 log = logging.getLogger()
 log.setLevel(logging.INFO)
-handler = logging.FileHandler(filename='bot.log', encoding='utf-8', mode='a')
+handler = logging.FileHandler(filename='selfbot.log', encoding='utf-8', mode='a')
 formatter = logging.Formatter("{asctime} - {levelname} - {message}", style="{")
 handler.setFormatter(formatter)
 log.addHandler(handler)
@@ -27,9 +27,9 @@ log.info("Instance started.")
 prefix = [">>> "]
 
 initial_extensions = [
-    "cogs.admin",
-    "cogs.general",
-    "cogs.test"
+    'admin',
+    'general',
+    'test'
 ]
 
 description = "me irl"
@@ -67,13 +67,16 @@ async def init_timed_events(bot):
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.NoPrivateMessage):
-        await ctx.message.channel.send(ctx.message.author, 'This command cannot be used in private messages.')
+        await ctx.message.channel.send(content='This command cannot be used in private messages.')
     elif isinstance(error, commands.DisabledCommand):
-        await ctx.message.channel.send(ctx.message.author, 'This command is disabled and cannot be used.')
+        await ctx.message.channel.send(content='This command is disabled and cannot be used.')
     elif isinstance(error, commands.MissingRequiredArgument):
         help_formatter = commands.formatter.HelpFormatter()
-        await ctx.message.channel.send(ctx.message.channel,
-                               "You are missing required arguments.\n{}".format(help_formatter.format_help_for(ctx, ctx.command)[0]))
+        await ctx.message.channel.send(content=\
+            "You are missing required arguments.\n{}".format(help_formatter.format_help_for(ctx, ctx.command)[0]))
+    elif isinstance(error, commands.CommandNotFound):
+        # await self.bot.add_reaction(ctx.message, "{X}")
+        await ctx.message.channel.send(content="Command not found")
     elif isinstance(error, commands.CommandInvokeError):
         print('In {0.command.qualified_name}:'.format(ctx), file=sys.stderr)
         print('{0.__class__.__name__}: {0}'.format(error.original), file=sys.stderr)
@@ -103,12 +106,15 @@ async def on_message(message):
 # Starting up
 
 if __name__ == "__main__":
+    print()
     for extension in initial_extensions:
         try:
-            bot.load_extension(extension)
-            log.info("Loaded {}".format(extension))
+            print("Loading initial cog 'cogs.{}'".format(extension))
+            bot.load_extension('cogs.{}'.format(extension))
+            log.info("Loaded cogs.{}".format(extension))
         except Exception as e:
             log.warning('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
             print('Failed to load extension {}\n{}: {}'.format(extension, type(e).__name__, e))
 
-        bot.run(token, bot=False)
+    print()
+    bot.run(token, bot=False)

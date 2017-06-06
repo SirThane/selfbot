@@ -21,6 +21,7 @@ class Admin:
     @commands.command(hidden=True, pass_context=True)
     async def load(self, ctx, *, module: str, verbose: bool=False):
         """load a module"""
+        module = 'cogs.{}'.format(module)
         try:
             self.bot.load_extension(module)
         except Exception as e:
@@ -34,6 +35,7 @@ class Admin:
     @commands.command(pass_context=True, hidden=True)
     async def unload(self, ctx, *, module: str):
         """Unloads a module."""
+        module = 'cogs.{}'.format(module)
         try:
             self.bot.unload_extension(module)
         except Exception as e:
@@ -44,6 +46,7 @@ class Admin:
     @commands.command(pass_context=True, name='reload', hidden=True)
     async def _reload(self, ctx, *, module: str):
         """Reloads a module."""
+        module = 'cogs.{}'.format(module)
         try:
             self.bot.unload_extension(module)
             sleep(1)
@@ -56,13 +59,13 @@ class Admin:
             await ctx.message.edit(content='Module reloaded.')
 
     # Thanks to rapptz
-    @commands.command(hidden=True)
-    async def eval(self, ctx, *, code: str):
+    @commands.command(hidden=True, name='eval')
+    async def _eval(self, ctx, *, code: str):
         """Run eval() on an input."""
         import discord
         import random
         code = code.strip('` ')
-        python = '```py\n>>> {0}\n{1}\n```'
+        python = '```py\n{0}\n```'
         env = {
             'bot': self.bot,
             'ctx': ctx,
@@ -80,11 +83,30 @@ class Admin:
             result = eval(code, env)
             if inspect.isawaitable(result):
                 result = await result
+            emb = {
+                'color': 0x00ff00,
+                'field': {
+                    'name': 'Yielded result:',
+                    'value': python.format(result),
+                    'inline': False
+                }
+            }
         except Exception as e:
-            await ctx.message.edit(content=python.format(code, type(e).__name__ + ': ' + str(e)))
-            return
+            emb = {
+                'color': 0xff0000,
+                'field': {
+                    'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
+                    'value': str(e),
+                    'inline': False
+                }
+            }
 
-        await ctx.message.edit(content=python.format(code, result))
+        embed = discord.Embed(title="Eval on:", description=python.format(code), color=emb['color'])
+        embed.add_field(**emb['field'])
+
+        await ctx.message.delete()  # FOR SOME REASON THIS DELETES THE MESSAGE *AND* THE MESSAGE BEFORE IT.
+        await ctx.channel.send(embed=embed)
+        # await ctx.message.edit(content='', embed=embed)
 
     @commands.command(pass_context=True, hidden=True)
     async def set_config(self, ctx, key: str, value: str):

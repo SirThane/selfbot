@@ -7,18 +7,27 @@ On leave, removes access role.
 
 import discord
 from discord.ext import commands
+# import main
 
 class VCAccess:
 
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.event
-    async def on_voice_status_update(self, member, before, after):
-        if member.guild == 184502171117551617:
-            print(dir(member))
-            print(dir(before))
-            print(dir(after))
+    @property
+    def guild(self):
+        return self.bot.get_guild(184502171117551617)
+
+    @property
+    def channel(self):
+        return self.guild.get_channel(315232431835709441)
+
+    async def on_voice_state_update(self, member, before, after):
+        dir(member)
+        dir(before)
+        dir(after)
+        await self.channel.send(content=dir(member))
+
 
 def setup(bot):
     bot.add_cog(VCAccess(bot))

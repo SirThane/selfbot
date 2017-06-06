@@ -72,7 +72,12 @@ class General:
 
         await ctx.message.edit(content=output)
 
-    @commands.command(pass_context=True, aliases=["game"])
+    @commands.command(name='obj')
+    async def _obj(self, ctx, arg_obj):
+        """Helper command to get information about an object."""
+        await ctx.message.channel.send(content='{0.name}\n{1}\n{0.id}'.format(arg_obj, dir(arg_obj)))
+
+    @commands.command(aliases=["game"])
     async def set_game(self, ctx, *, game: str=None):
         if game:
             await self.bot.change_presence(game=discord.Game(name=game))
@@ -104,8 +109,8 @@ class General:
     #                                     "M*)(B8mdu98vuw09vmdfj",
     #                                     embed=embed)
 
-    @commands.command(pass_context=True, name="ujd")
-    async def _joined(self, ctx, uid: int): ### MAKE THIS AN EMBED WITH USER AVATAR
+    @commands.command(name="ujd")
+    async def _joined(self, ctx, user: any): ### MAKE THIS AN EMBED WITH USER AVATAR
         """[p]ujd <userid>
 
         Returns member.joined_at for member on current guild."""
@@ -116,10 +121,14 @@ class General:
             await ctx.message.edit(content=reply)
         else:
             await ctx.message.edit(content='```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
-            # try:
-            #     await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
-            # except AttributeError:
-            #     await self.bot.delete_message(ctx.message)
+            try:
+                await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
+            except AttributeError:
+                await self.bot.delete_message(ctx.message)
+
+    @commands.command(name='gui')
+    async def gui(self, ctx, uid: int):
+        await ctx.message.channel.send(content=self.bot.get_user_info(uid))
 
 
 def setup(bot):
