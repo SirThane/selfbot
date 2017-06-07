@@ -18,12 +18,12 @@ class Admin:
         self.bot = bot
         # self.config = bot.config
 
-    @commands.command(hidden=True, pass_context=True)
-    async def load(self, ctx, *, module: str, verbose: bool=False):
+    @commands.command(hidden=True)
+    async def load(self, ctx, *, cog: str, verbose: bool=False):
         """load a module"""
-        module = 'cogs.{}'.format(module)
+        cog = 'cogs.{}'.format(cog)
         try:
-            self.bot.load_extension(module)
+            self.bot.load_extension(cog)
         except Exception as e:
             if not verbose:
                 await ctx.message.edit(content='{}: {}'.format(type(e).__name__, e))
@@ -32,25 +32,25 @@ class Admin:
         else:
             await ctx.message.edit(content="Module loaded successfully.")
 
-    @commands.command(pass_context=True, hidden=True)
-    async def unload(self, ctx, *, module: str):
+    @commands.command(hidden=True)
+    async def unload(self, ctx, *, cog: str):
         """Unloads a module."""
-        module = 'cogs.{}'.format(module)
+        cog = 'cogs.{}'.format(cog)
         try:
-            self.bot.unload_extension(module)
+            self.bot.unload_extension(cog)
         except Exception as e:
             await ctx.message.edit(content='{}: {}'.format(type(e).__name__, e))
         else:
             await ctx.message.edit(content='Module unloaded successfully.')
 
-    @commands.command(pass_context=True, name='reload', hidden=True)
-    async def _reload(self, ctx, *, module: str):
+    @commands.command(hidden=True)
+    async def reload(self, ctx, *, cog: str):
         """Reloads a module."""
-        module = 'cogs.{}'.format(module)
+        cog = 'cogs.{}'.format(cog)
         try:
-            self.bot.unload_extension(module)
+            self.bot.unload_extension(cog)
             sleep(1)
-            self.bot.load_extension(module)
+            self.bot.load_extension(cog)
         except Exception as e:
             await ctx.message.edit(content='Failed.')
             sleep(1)
@@ -108,32 +108,82 @@ class Admin:
         await ctx.channel.send(embed=embed)
         # await ctx.message.edit(content='', embed=embed)
 
-    @commands.command(pass_context=True, hidden=True)
-    async def set_config(self, ctx, key: str, value: str):
-        """Directly alter a config file."""
-        try:
-            try:
-                value = int(value)
-            except ValueError:
-                pass
-            await self.config.put(key, value)
-            await ctx.message.edit(content="Success.")
-        except KeyError:
-            raise commands.CommandInvokeError
+    @commands.command(hidden=True, name='exec')
+    async def _exec(self, ctx, *, code: str):
+        """Run eval() on an input."""
+        import asyncio
+        import discord
+        import random
+        code = code.strip('```\n ')
+        python = '```py\n{0}{1}\n```'
+        env = {
+            'bot': self.bot,
+            'ctx': ctx,
+            'message': ctx.message,
+            'guild': ctx.message.guild,
+            'channel': ctx.message.channel,
+            'author': ctx.message.author,
+            'asyncio': asyncio,
+            'discord': discord,
+            'random': random
+        }
 
-    @commands.command(hidden=True, pass_context=True)
-    async def append_to_config(self, ctx, key: str, value: str):
-        """Append a value to a list in a config file"""
-        try:
-            temp_list = await self.config.get(key)
-            temp_list.append(value)
-            await self.config.put(key, temp_list)
-            await ctx.message.edit(content="Success.")
-        except KeyError:
-            await ctx.message.edit(content="Key {} not found.".format(key))
+        env.update(globals())
 
-    @commands.command(pass_context=True, hidden=True, aliases=["rip", "F", "f"])
-    async def kill(self, ctx):
+        try:
+            result = exec(code, env)
+            # if inspect.isawaitable(result):
+            #     result = await result
+            emb = {
+                'color': 0x00ff00,
+                'field': {
+                    'name': 'Yielded result:',
+                    'value': python.format('', result),
+                    'inline': False
+                }
+            }
+        except Exception as e:
+            emb = {
+                'color': 0xff0000,
+                'field': {
+                    'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
+                    'value': str(e),
+                    'inline': False
+                }
+            }
+
+        embed = discord.Embed(title="Exec on:", description=python.format('>>> ', code), color=emb['color'])
+        embed.add_field(**emb['field'])
+
+        await ctx.message.delete()  # FOR SOME REASON THIS DELETES THE MESSAGE *AND* THE MESSAGE BEFORE IT.
+        await ctx.channel.send(embed=embed)
+
+    # @commands.command(hidden=True, name='set_config')
+    # async def _set_config(self, ctx, key: str, value: str):
+    #     """Directly alter a config file."""
+    #     try:
+    #         try:
+    #             value = int(value)
+    #         except ValueError:
+    #             pass
+    #         await self.config.put(key, value)
+    #         await ctx.message.edit(content="Success.")
+    #     except KeyError:
+    #         raise commands.CommandInvokeError
+    #
+    # @commands.command(hidden=True, name='append_to_config')
+    # async def _append_to_config(self, ctx, key: str, value: str):
+    #     """Append a value to a list in a config file"""
+    #     try:
+    #         temp_list = await self.config.get(key)
+    #         temp_list.append(value)
+    #         await self.config.put(key, temp_list)
+    #         await ctx.message.edit(content="Success.")
+    #     except KeyError:
+    #         await ctx.message.edit(content="Key {} not found.".format(key))
+
+    @commands.command(hidden=True, aliases=["rip", "F", "f"])
+    async def kill(self, ctx):  # Overwrites builtin kill()
         log.warning("Restarted by command.")
         await ctx.message.edit(content="Restarting.")
         await self.bot.logout()
