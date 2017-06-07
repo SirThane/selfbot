@@ -23,7 +23,7 @@ class Test:
     @commands.command(name='embed')
     async def _embed(self, ctx, *, args):
         # if args is not None:
-        # import argparse
+        import argparse
         # parser = argparse.ArgumentParser()
         # parser.add_argument_group()
         print(list(args))
