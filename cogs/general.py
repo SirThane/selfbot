@@ -1,7 +1,7 @@
 """General-use cog"""
 
 from discord.ext import commands
-from .utils.utils import format_embed
+from cogs.utils import utils
 # from .utils import gizoogle
 import discord
 from random import randint
@@ -72,11 +72,6 @@ class General:
 
         await ctx.message.edit(content=output)
 
-    @commands.command(name='obj')
-    async def _obj(self, ctx, arg_obj):
-        """Helper command to get information about an object."""
-        await ctx.message.channel.send(content='{0.name}\n{1}\n{0.id}'.format(arg_obj, dir(arg_obj)))
-
     @commands.command(aliases=["game"])
     async def set_game(self, ctx, *, game: str=None):
         if game:
@@ -108,27 +103,84 @@ class General:
     #         await self.bot.send_message(discord.Object(id="291451280902193152"),
     #                                     "M*)(B8mdu98vuw09vmdfj",
     #                                     embed=embed)
+    #
+    # @commands.command(name="ujd")
+    # async def _joined(self, ctx, user: utils.UserType = None):  # MAKE THIS AN EMBED WITH USER AVATAR
+    #     """[p]ujd <userid>
+    #
+    #     Returns member.joined_at for member on current guild."""
+    #     svr = ctx.message.author.guild
+    #     usr = discord.utils.get(svr.members, id=uid)
+    #     if usr is not None:
+    #         reply = '```py\n"{0.display_name} ({0})" joined "{1.name}" on:\n{0.joined_at}\n```'.format(usr, svr)
+    #         await ctx.message.edit(reply)
+    #     else:
+    #         await ctx.message.edit('```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
+    #         try:
+    #             await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
+    #         except AttributeError:
+    #             await self.bot.delete_message(ctx.message)
 
-    @commands.command(name="ujd")
-    async def _joined(self, ctx, user: any): ### MAKE THIS AN EMBED WITH USER AVATAR
-        """[p]ujd <userid>
+    @commands.command(aliases=['getuserinfo', 'userinfo'], no_private=True)
+    async def _getuserinfo(self, ctx, member: discord.Member=None):
 
-        Returns member.joined_at for member on current guild."""
-        svr = ctx.message.author.guild
-        usr = discord.utils.get(svr.members, id=uid)
-        if usr is not None:
-            reply = '```py\n"{0.display_name} ({0})" joined "{1.name}" on:\n{0.joined_at}\n```'.format(usr, svr)
-            await ctx.message.edit(content=reply)
-        else:
-            await ctx.message.edit(content='```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
-            try:
-                await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
-            except AttributeError:
-                await self.bot.delete_message(ctx.message)
+        import datetime
 
-    @commands.command(name='gui')
-    async def gui(self, ctx, uid: int):
-        await ctx.message.channel.send(content=self.bot.get_user_info(uid))
+        if member is None:
+            member = ctx.message.author
+
+        emb = {
+            'embed': {
+                'title': 'User Information For:',
+                'description': '{0.name}#{0.discriminator}'.format(member),
+                'color': member.color  # TODO: FIND USER DEFAULT AVATAR COLOR
+            },
+            'author': {
+                'name': '{0.name} || #{1.name}'.format(ctx.guild, ctx.channel),
+                'icon_url': ctx.guild.icon_url
+            },
+            'fields': [
+                {
+                    'name': 'User ID',
+                    'value': str(member.id),
+                    'inline': True
+                },
+                {
+                    'name': 'Display Name:',
+                    'value': member.display_name if not None else '(no display name set)',
+                    'inline': True
+                },
+                {
+                    'name': 'Roles:',
+                    'value': str([r.name for r in member.roles if '@everyone' not in r.name]).strip('[]').replace(', ', '\n').replace("'", ''),
+                    'inline': False
+                },
+                {
+                    'name': 'Account Created:',
+                    'value': member.created_at.strftime("%b. %d, %Y\n%I:%M %p"),  # ("%Y-%m-%d %H:%M"),
+                    'inline': True
+                },
+                {
+                    'name': 'Joined Server:',
+                    'value': member.joined_at.strftime("%b. %d, %Y\n%I:%M %p"),
+                    'inline': True
+                },
+            ],
+            'footer': {
+                'text': 'Invoked by {0.name}#{0.discriminator} || {1}\
+                        '.format(ctx.message.author, datetime.datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")),
+                'icon_url': ctx.message.author.avatar_url
+            }
+        }
+
+        embed = discord.Embed(**emb['embed'])  # TODO: EMBED FUNCTION/CLASS
+        embed.set_author(**emb['author'])
+        embed.set_thumbnail(url=member.avatar_url)
+        for field in emb['fields']:
+            embed.add_field(**field)
+        embed.set_footer(**emb['footer'])
+
+        await ctx.channel.send(embed=embed)
 
 
 def setup(bot):
