@@ -146,7 +146,7 @@ class General:
             'embed': {
                 'title': 'User Information For:',
                 'description': '{0.name}#{0.discriminator}'.format(member),
-                'color': member.color  # TODO: FIND USER DEFAULT AVATAR COLOR
+                'color': getattr(discord.Colour, member.default_avatar.name)()
             },
             'author': {
                 'name': '{0.name} || #{1.name}'.format(ctx.guild, ctx.channel),
@@ -181,7 +181,7 @@ class General:
             ],
             'footer': {
                 'text': 'Invoked by {0.name}#{0.discriminator} || {1}\
-                        '.format(ctx.message.author, datetime.datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")),
+                        '.format(ctx.message.author, datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")),
                 'icon_url': ctx.message.author.avatar_url
             }
         }
