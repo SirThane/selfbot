@@ -14,3 +14,17 @@ class SQLConfig:
 
 def setup(bot):
     bot.add_cog(SQLConfig(bot))
+
+# db = sqlite3.connect('dbase.db')
+# c = db.cursor()
+#
+# # c.execute("""CREATE TABLE playground (
+# #                 val1 text,
+# #                 val2 text,
+# #                 val3 integer
+# #                 )""")
+#
+# c.execute("""INSERT INTO playground VALUES
+#             ('Test', 'Text', 42)""")
+#
+# db.close()
