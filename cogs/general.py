@@ -123,8 +123,17 @@ class General:
 
     @commands.command(aliases=['getuserinfo', 'userinfo'], no_private=True)
     async def _getuserinfo(self, ctx, member: discord.Member=None):
+        """Gets current server information for a given user
 
-        import datetime
+        Usage:  $userinfo @user
+                $userinfo username#discrim
+                $userinfo userid
+
+        Issues: Some special characters cause problems when
+                using un#dis. For those, mention or userid
+                should still work."""
+
+        from datetime import datetime
 
         if member is None:
             member = ctx.message.author
