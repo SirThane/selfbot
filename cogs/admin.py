@@ -58,7 +58,7 @@ class Admin:
         else:
             await ctx.message.edit(content='Module reloaded.')
 
-    @commands.command(hidden=True)
+    @commands.command(hidden=True, name='await')
     async def _await(self, ctx, *, code):
         import discord
 
