@@ -17,10 +17,6 @@ class Test:
     async def _ping(self, ctx):
         await ctx.channel.send('Pong')
 
-    @commands.command(name='tost')
-    async def _tost(self, ctx, member: discord.Member=None):
-        await ctx.channel.send(member.color)
-
     @commands.command(name='dacolor')
     async def _dacolor(self, ctx, member: discord.Member=None):
 

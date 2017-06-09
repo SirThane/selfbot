@@ -142,6 +142,8 @@ class General:
         if roles == '':
             roles = 'User has no assigned roles.'
 
+        timestamp = datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")
+
         emb = {
             'embed': {
                 'title': 'User Information For:',
@@ -149,7 +151,7 @@ class General:
                 'color': getattr(discord.Colour, member.default_avatar.name)()
             },
             'author': {
-                'name': '{0.name} || #{1.name}'.format(ctx.guild, ctx.channel),
+                'name': '{0.name}  ||  #{1.name}'.format(ctx.guild, ctx.channel),
                 'icon_url': ctx.guild.icon_url
             },
             'fields': [
@@ -180,8 +182,7 @@ class General:
                 },
             ],
             'footer': {
-                'text': 'Invoked by {0.name}#{0.discriminator} || {1}\
-                        '.format(ctx.message.author, datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")),
+                'text': 'Invoked by {0.name}#{0.discriminator}  ||  {1}'.format(ctx.message.author, timestamp),
                 'icon_url': ctx.message.author.avatar_url
             }
         }

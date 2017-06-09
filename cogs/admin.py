@@ -84,7 +84,7 @@ class Admin:
             if inspect.isawaitable(result):
                 result = await result
             emb = {
-                'color': 0x00ff00,
+                'color': 0xFF0000,
                 'field': {
                     'name': 'Yielded result:',
                     'value': python.format(result),
@@ -93,10 +93,10 @@ class Admin:
             }
         except Exception as e:
             emb = {
-                'color': 0xff0000,
+                'color': 0x00FF00,
                 'field': {
                     'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
-                    'value': str(e),
+                    'value': '{0} '.format(e),
                     'inline': False
                 }
             }
@@ -104,7 +104,7 @@ class Admin:
         embed = discord.Embed(title="Eval on:", description=python.format(code), color=emb['color'])
         embed.add_field(**emb['field'])
 
-        await ctx.message.delete()  # FOR SOME REASON THIS DELETES THE MESSAGE *AND* THE MESSAGE BEFORE IT.
+        await ctx.message.delete()
         await ctx.channel.send(embed=embed)
         # await ctx.message.edit(content='', embed=embed)
 
@@ -132,8 +132,8 @@ class Admin:
 
         try:
             result = exec(code, env)
-            # if inspect.isawaitable(result):
-            #     result = await result
+            if inspect.isawaitable(result):
+                result = await result
             emb = {
                 'color': 0x00ff00,
                 'field': {
