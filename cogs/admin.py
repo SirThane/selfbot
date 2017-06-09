@@ -66,7 +66,9 @@ class Admin:
             result = await code
             await ctx.send(result)
         except Exception as e:
-            ctx.send(str(e))
+            await ctx.send(str(e))
+        else:
+            await ctx.message.delete()
 
     # Thanks to rapptz
     @commands.command(hidden=True, name='eval')
