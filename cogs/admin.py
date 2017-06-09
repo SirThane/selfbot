@@ -58,6 +58,16 @@ class Admin:
         else:
             await ctx.message.edit(content='Module reloaded.')
 
+    @commands.command(hidden=True)
+    async def _await(self, ctx, *, code):
+        import discord
+
+        try:
+            result = await code
+            await ctx.send(result)
+        except Exception as e:
+            ctx.send(str(e))
+
     # Thanks to rapptz
     @commands.command(hidden=True, name='eval')
     async def _eval(self, ctx, *, code: str):
