@@ -13,20 +13,13 @@ class Test:
     def __init__(self, bot):
         self.bot = bot
 
+
+
     @commands.command(name='ping')
     async def _ping(self, ctx):
         await ctx.channel.send('Pong')
 
-    @commands.command(name='dacolor')
-    async def _dacolor(self, ctx, member: discord.Member=None):
 
-        if member is None:
-            member = ctx.message.author
-
-        default_avatar = member.default_avatar.name
-        color = getattr(discord.Colour, default_avatar)()
-
-        await ctx.send(embed=discord.Embed(title=default_avatar, colour=color))
 
     @commands.command(name='emb')
     async def _embed(self, ctx, *, args):

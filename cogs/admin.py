@@ -4,12 +4,28 @@ which in turn were mostly from Danny.
 Copyright (c) 2015 Rapptz
 """
 from discord.ext import commands
+import discord
+import asyncio
+import random
 import traceback
 import inspect
 import logging
 from asyncio import sleep
+import sys
+from io import StringIO
+import contextlib
 
 log = logging.getLogger()
+
+
+@contextlib.contextmanager
+def stdoutio(stdout=None):
+    old = sys.stdout
+    if stdout is None:
+        stdout = StringIO()
+    sys.stdout = stdout
+    yield stdout
+    sys.stdout = old
 
 
 class Admin:
@@ -60,11 +76,9 @@ class Admin:
 
     @commands.command(hidden=True, name='await')
     async def _await(self, ctx, *, code):
-        import discord
 
         try:
-            result = await code
-            await ctx.send(result)
+            await eval(code)
         except Exception as e:
             await ctx.send(str(e))
         else:
@@ -74,8 +88,7 @@ class Admin:
     @commands.command(hidden=True, name='eval')
     async def _eval(self, ctx, *, code: str):
         """Run eval() on an input."""
-        import discord
-        import random
+
         code = code.strip('` ')
         python = '```py\n{0}\n```'
         env = {
@@ -95,8 +108,9 @@ class Admin:
             result = eval(code, env)
             if inspect.isawaitable(result):
                 result = await result
+            result = str(result)[:1014]
             emb = {
-                'color': 0xFF0000,
+                'color': 0x00FF00,
                 'field': {
                     'name': 'Yielded result:',
                     'value': python.format(result),
@@ -105,7 +119,7 @@ class Admin:
             }
         except Exception as e:
             emb = {
-                'color': 0x00FF00,
+                'color': 0xFF0000,
                 'field': {
                     'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
                     'value': '{0} '.format(e),
@@ -118,16 +132,14 @@ class Admin:
 
         await ctx.message.delete()
         await ctx.channel.send(embed=embed)
-        # await ctx.message.edit(content='', embed=embed)
 
     @commands.command(hidden=True, name='exec')
     async def _exec(self, ctx, *, code: str):
-        """Run eval() on an input."""
-        import asyncio
-        import discord
-        import random
+        """Run exec() on an input."""
+
         code = code.strip('```\n ')
-        python = '```py\n{0}{1}\n```'
+        python = '```py\n{0}\n```'
+
         env = {
             'bot': self.bot,
             'ctx': ctx,
@@ -135,25 +147,16 @@ class Admin:
             'guild': ctx.message.guild,
             'channel': ctx.message.channel,
             'author': ctx.message.author,
-            'asyncio': asyncio,
             'discord': discord,
-            'random': random
         }
 
         env.update(globals())
 
         try:
-            result = exec(code, env)
-            if inspect.isawaitable(result):
-                result = await result
-            emb = {
-                'color': 0x00ff00,
-                'field': {
-                    'name': 'Yielded result:',
-                    'value': python.format('', result),
-                    'inline': False
-                }
-            }
+            with stdoutio() as s:
+                exec(code, env)
+                result = str(s.getvalue())
+            result = str(result)[:1014]
         except Exception as e:
             emb = {
                 'color': 0xff0000,
@@ -163,12 +166,21 @@ class Admin:
                     'inline': False
                 }
             }
+        else:
+            emb = {
+                'color': 0x00ff00,
+                'field': {
+                    'name': 'Yielded result(s):',
+                    'value': python.format(result),
+                    'inline': False
+                }
+            }
 
-        embed = discord.Embed(title="Exec on:", description=python.format('>>> ', code), color=emb['color'])
+        embed = discord.Embed(title="Exec on:", description=python.format(code), color=emb['color'])
         embed.add_field(**emb['field'])
 
-        await ctx.message.delete()  # FOR SOME REASON THIS DELETES THE MESSAGE *AND* THE MESSAGE BEFORE IT.
-        await ctx.channel.send(embed=embed)
+        await ctx.message.delete()
+        await ctx.send(embed=embed)
 
     # @commands.command(hidden=True, name='set_config')
     # async def _set_config(self, ctx, key: str, value: str):
