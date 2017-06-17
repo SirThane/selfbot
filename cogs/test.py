@@ -34,6 +34,10 @@ class Test:
         await ctx.send(embed=discord.Embed(title='test', description='text').add_field(name='test2',
                                                                                        value=discord.Embed.Empty))
 
+    @commands.command(name='getemoji')
+    async def getemoji(self, ctx, *, emoji: discord.Emoji=None):
+        await ctx.send(emoji if not None else "Didn't work")
+
 
 def setup(bot):
     bot.add_cog(Test(bot))

@@ -242,6 +242,13 @@ class General:
     #     em.set_image(url=url)
     #     await ctx.send(embed=em)
 
+    @commands.command(name='pressf')
+    async def pressf(self, ctx):
+        await ctx.message.delete()
+        await ctx.send('**[Press F to RIP]**')
+        msg = await ctx.send(':regional_indicator_f:')
+        await msg.add_reaction(u'👆')
+
 
 def setup(bot):
     bot.add_cog(General(bot))
