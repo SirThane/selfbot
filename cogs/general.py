@@ -196,51 +196,51 @@ class General:
 
         await ctx.channel.send(embed=embed)
 
-    @commands.command(name='illegal')
-    async def isnowillegal(self, ctx, *, phrase=None):
-        """Make President Trump declare something illegal"""
-
-        import requests
-        import json
-
-        if phrase is None:
-            phrase = ctx.author.name
-        if len(phrase) > 10:
-            em = discord.Embed(title="Too Long", description="We all know Trump is stupid. He can't process that",
-                               colour=discord.Color.green())
-            await self.bot.say(embed=em)
-            return
-        url = "https://is-now-illegal.firebaseio.com/queue/tasks.json"
-
-        payload = {"task": "gif", "word": phrase.replace(" ", "%20").upper()}
-        payload = json.dumps(payload)
-        headers = {'content-type': "application/json", 'cache-control': "no-cache", }
-
-        response = requests.request("POST", url, data=payload, headers=headers)
-
-        print(response.text)
-        m = await ctx.send(
-            embed=discord.Embed(title="Generating...", description="Please wait (This may take up to 30 seconds)"))
-        phrase = phrase.replace(" ", "%20").upper()
-        await asyncio.sleep(20)
-
-        url = f"https://is-now-illegal.firebaseio.com/gifs/{phrase.upper()}.json"
-
-        headers = {'content-type': "application/json", 'cache-control': "no-cache", }
-
-        response = requests.request("GET", url, data=payload, headers=headers)
-        print(response.text)
-
-        r = json.loads(response.text)
-        if r is None:
-            await self.bot.say(embed=discord.Embed(title="Error with isnowillegal API",
-                                                   description="If you want you can go [here](http://isnowillegal.com)"
-                                                               "and make the gif yourself"))
-            return
-        url = r['url']
-        em = discord.Embed(title="Is Now Illegal", colour=discord.Color.green())
-        em.set_image(url=url)
-        await ctx.send(embed=em)
+    # @commands.command(name='illegal')
+    # async def isnowillegal(self, ctx, *, phrase=None):
+    #     """Make President Trump declare something illegal"""
+    #
+    #     import requests
+    #     import json
+    #
+    #     if phrase is None:
+    #         phrase = ctx.author.name
+    #     if len(phrase) > 10:
+    #         em = discord.Embed(title="Too Long", description="We all know Trump is stupid. He can't process that",
+    #                            colour=discord.Color.green())
+    #         await ctx.send(embed=em)
+    #         return
+    #     url = "https://is-now-illegal.firebaseio.com/queue/tasks.json"
+    #
+    #     payload = {"task": "gif", "word": phrase.replace(" ", "%20").upper()}
+    #     payload = json.dumps(payload)
+    #     headers = {'content-type': "application/json", 'cache-control': "no-cache", }
+    #
+    #     response = requests.request("POST", url, data=payload, headers=headers)
+    #
+    #     print(response.text)
+    #     m = await ctx.send(
+    #         embed=discord.Embed(title="Generating...", description="Please wait (This may take up to 30 seconds)"))
+    #     phrase = phrase.replace(" ", "%20").upper()
+    #     await asyncio.sleep(20)
+    #
+    #     url = f"https://is-now-illegal.firebaseio.com/gifs/{phrase.upper()}.json"
+    #
+    #     headers = {'content-type': "application/json", 'cache-control': "no-cache", }
+    #
+    #     response = requests.request("GET", url, data=payload, headers=headers)
+    #     print(response.text)
+    #
+    #     r = json.loads(response.text)
+    #     if r is None:
+    #         await self.bot.say(embed=discord.Embed(title="Error with isnowillegal API",
+    #                                                description="If you want you can go [here](http://isnowillegal.com)"
+    #                                                            "and make the gif yourself"))
+    #         return
+    #     url = r['url']
+    #     em = discord.Embed(title="Is Now Illegal", colour=discord.Color.green())
+    #     em.set_image(url=url)
+    #     await ctx.send(embed=em)
 
 
 def setup(bot):
