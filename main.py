@@ -1,7 +1,7 @@
 """
 Selfbot for myself. About time.
 Created on 3/14/17.
-
+u'\u200b'
 This bot has been hijacked by Thane. :^)
 """
 
