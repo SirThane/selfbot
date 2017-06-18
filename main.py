@@ -42,7 +42,6 @@ except IOError:
     sys.exit("auth.json not found in running directory.")
 
 bot = commands.Bot(command_prefix=prefix, description=description, pm_help=True, self_bot=True)
-bot.change_presence(afk=True)
 
 
 @bot.listen()
@@ -119,3 +118,4 @@ if __name__ == "__main__":
 
     print()
     bot.run(token, bot=False)
+    bot.change_presence(afk=True)
