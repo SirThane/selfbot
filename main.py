@@ -90,13 +90,15 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(afk=True)
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
     log.info("Initialized.")
 
     print('------')
+    await asyncio.sleep(5)
+    await bot.change_presence(afk=True)
+    print('AFK status set.')
 
 
 @bot.event
