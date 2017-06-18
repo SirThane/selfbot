@@ -42,6 +42,7 @@ except IOError:
     sys.exit("auth.json not found in running directory.")
 
 bot = commands.Bot(command_prefix=prefix, description=description, pm_help=True, self_bot=True)
+bot.change_presence(afk=True)
 
 
 @bot.listen()

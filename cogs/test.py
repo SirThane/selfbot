@@ -6,6 +6,7 @@ import discord
 from discord.ext import commands
 from cogs.utils import utils, messages
 import inspect
+from random import choice
 
 
 class Test:
@@ -37,6 +38,18 @@ class Test:
     @commands.command(name='getemoji')
     async def getemoji(self, ctx, *, emoji: discord.Emoji=None):
         await ctx.send(emoji if not None else "Didn't work")
+
+    @commands.command(name='zalgo')
+    async def zalgo(self, ctx, *, text: str):
+        def zalgo(text, iter=1):
+            for i in range(iter):
+                text = ''.join(
+                    [v, v + ''.join(choice(list(map(chr, range(768, 815)))) for i in range(int(normalvariate(10, 5))))][
+                        v.isalpha()] for v in text)
+            else:
+                return text
+
+        await ctx.send(zalgo(text, 14))
 
 
 def setup(bot):
