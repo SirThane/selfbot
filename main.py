@@ -42,7 +42,8 @@ try:
 except IOError:
     sys.exit("auth.json not found in running directory.")
 
-bot = commands.Bot(command_prefix=prefix, description=description, pm_help=True, self_bot=True)
+bot = commands.Bot(command_prefix=prefix, description=description, pm_help=True, self_bot=True,
+                   status=discord.Status.idle)
 
 
 @bot.listen()
@@ -96,8 +97,8 @@ async def on_ready():
     log.info("Initialized.")
 
     print('------')
-    await asyncio.sleep(5)
-    await bot.change_presence(afk=True)
+    # await asyncio.sleep(5)
+    # await bot.change_presence(afk=True)
     print('AFK status set.')
 
 
