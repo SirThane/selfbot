@@ -10,6 +10,7 @@ import logging
 import sys
 # from cogs.utils.config import Config
 from discord.ext import commands
+import discord
 import asyncio
 import traceback
 
@@ -89,6 +90,7 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(afk=True)
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
