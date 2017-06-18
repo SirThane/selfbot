@@ -97,8 +97,8 @@ async def on_ready():
     log.info("Initialized.")
 
     print('------')
-    # await asyncio.sleep(5)
-    # await bot.change_presence(afk=True)
+    await asyncio.sleep(5)
+    await bot.change_presence(afk=True)
     print('AFK status set.')
 
 
