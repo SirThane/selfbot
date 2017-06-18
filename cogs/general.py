@@ -189,7 +189,7 @@ class General:
 
         embed = discord.Embed(**emb['embed'])  # TODO: EMBED FUNCTION/CLASS
         embed.set_author(**emb['author'])
-        embed.set_thumbnail(url=member.avatar_url)
+        embed.set_thumbnail(url=member.avatar_url_as(format='png'))
         for field in emb['fields']:
             embed.add_field(**field)
         embed.set_footer(**emb['footer'])
