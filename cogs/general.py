@@ -249,6 +249,24 @@ class General:
         msg = await ctx.send(':regional_indicator_f:')
         await msg.add_reaction(u'👆')
 
+    @commands.command(name='learnpy')
+    async def learnpy(self, ctx):
+        msg = """
+Well, I started here and everyone said I shouldn't bother with it because it has an old Python version, but for someone who's not just new to Python, but new to programming in general, use https://codecademy.com/.
+It's very interactive, and even though you can't really do anything with what you learn, it will familiarize you with the fundamentals.
+It's free. There are some other resources that you can use afterwards, but I would suggest starting here.
+http://python.swaroopch.com/ (for complete beginners to programming)
+https://learnxinyminutes.com/docs/python3/ (for people who know programming already)
+https://docs.python.org/3.5/tutorial/ (for the in-between group, i.e. knows some programming but not a lot)
+see also: http://www.codeabbey.com/ (exercises for beginners)
+http://www.learnpython.org/ (somewhat interactive tutorial)
+Also, this guy's video tutorials are excellent.
+https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
+https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
+https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
+"""
+        await ctx.send(msg)
+
 
 def setup(bot):
     bot.add_cog(General(bot))
