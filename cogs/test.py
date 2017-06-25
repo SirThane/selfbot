@@ -4,7 +4,7 @@ Trying to trouble shoot the invocation errors
 
 import discord
 from discord.ext import commands
-from cogs.utils import utils, messages
+# from cogs.utils import utils, messages
 import inspect
 from random import choice
 
@@ -50,6 +50,11 @@ class Test:
                 return text
 
         await ctx.send(zalgo(text, 14))
+
+    @commands.command(name='messagekipalt')
+    async def messagekipalt(self, ctx, *, message: str):
+        member = discord.utils.get(ctx.guild.members, id=296246621791059969)
+        await member.send(message)
 
 
 def setup(bot):

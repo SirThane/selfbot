@@ -17,7 +17,7 @@ import traceback
 loop = asyncio.get_event_loop()
 
 log = logging.getLogger()
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 handler = logging.FileHandler(filename='selfbot.log', encoding='utf-8', mode='a')
 formatter = logging.Formatter("{asctime} - {levelname} - {message}", style="{")
 handler.setFormatter(formatter)

@@ -1,1 +1,9 @@
 auth.json
+.idea/workspace.xml
+__pycache__/
+cogs/__pycache__/
+cogs/embed.json
+cogs/utils/__pycache__/
+cogs/utils/messages.py
+selfbot.log
+test.py
