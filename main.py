@@ -13,6 +13,7 @@ from discord.ext import commands
 import discord
 import asyncio
 import traceback
+from datetime import datetime
 
 loop = asyncio.get_event_loop()
 
@@ -70,23 +71,32 @@ async def init_timed_events(bot):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.NoPrivateMessage):
         await ctx.message.channel.send(content='This command cannot be used in private messages.')
+
     elif isinstance(error, commands.DisabledCommand):
         await ctx.message.channel.send(content='This command is disabled and cannot be used.')
+
     elif isinstance(error, commands.MissingRequiredArgument):
         help_formatter = commands.formatter.HelpFormatter()
         await ctx.message.channel.send(content=\
             "You are missing required arguments.\n{}".format(help_formatter.format_help_for(ctx, ctx.command)[0]))
+
     elif isinstance(error, commands.CommandNotFound):
         # await self.bot.add_reaction(ctx.message, "{X}")
         await ctx.message.channel.send(content="Command not found")
+
     elif isinstance(error, commands.CommandInvokeError):
         print('In {0.command.qualified_name}:'.format(ctx), file=sys.stderr)
         print('{0.__class__.__name__}: {0}'.format(error.original), file=sys.stderr)
         traceback.print_tb(error.__traceback__, file=sys.stderr)
         log.error('In {0.command.qualified_name}:'.format(ctx))
         log.error('{0.__class__.__name__}: {0}'.format(error.original))
+
     else:
         traceback.print_tb(error.original.__traceback__, file=sys.stderr)
+
+
+home_guild = None
+me_ = None
 
 
 @bot.event
@@ -100,13 +110,27 @@ async def on_ready():
     await asyncio.sleep(5)
     await bot.change_presence(afk=True)
     print('AFK status set.')
+    global home_guild
+    home_guild = discord.utils.get(bot.guilds, id=184502171117551617)
+    global me_
+    me_ = discord.utils.get(home_guild.channels, id=193595671448780800)
+    print('Owned guild and #me_ set. Mention detector available.')
 
 
 @bot.event
 async def on_message(message):
+    if me_ and not isinstance(message.channel, discord.DMChannel):
+        l = ['thane', 'sir thane', 'sirthane']
+        l.append(message.guild.me.display_name.lower())
+        if any(map(lambda x: x in message.content.lower(), l)):
+            timestamp = datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")
+            em = discord.Embed(title='{0.guild}: #{0.channel} at {1}'.format(message, timestamp),
+                               description=message.content,
+                               color=message.author.color)
+            em.set_author(name='{0.name}#{0.discriminator} ({0.display_name})'.format(message.author),
+                          icon_url=message.author.avatar_url_as(format='png'))
+            await me_.send('$self_mention_detected', embed=em)
     await bot.process_commands(message)
-
-# bot.config = Config("config.json")
 
 # Starting up
 
