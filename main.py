@@ -129,7 +129,7 @@ async def on_message(message):
                                color=message.author.color)
             em.set_author(name='{0.name}#{0.discriminator} ({0.display_name})'.format(message.author),
                           icon_url=message.author.avatar_url_as(format='png'))
-            await me_.send('$self_mention_detected', embed=em)
+            await me_.send(f'$self_mention_detected    {message.channel.id}', embed=em)
     await bot.process_commands(message)
 
 # Starting up
