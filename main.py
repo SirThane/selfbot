@@ -119,15 +119,17 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if me_ and not isinstance(message.channel, discord.DMChannel):
+    if me_ and not isinstance(message.channel, discord.DMChannel) and message.author.id != bot.user.id:
         l = ['thane', 'sir thane', 'sirthane']
         l.append(message.guild.me.display_name.lower())
         if any(map(lambda x: x in message.content.lower(), l)):
             timestamp = datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")
+            display_name = f' ({message.author.display_name})' \
+                           if message.author.display_name != message.author.name else ''
             em = discord.Embed(title='{0.guild}: #{0.channel} at {1}'.format(message, timestamp),
                                description=message.content,
                                color=message.author.color)
-            em.set_author(name='{0.name}#{0.discriminator} ({0.display_name})'.format(message.author),
+            em.set_author(name='{0.name}#{0.discriminator}{1}'.format(message.author, display_name),
                           icon_url=message.author.avatar_url_as(format='png'))
             await me_.send(f'$self_mention_detected    {message.channel.id}', embed=em)
     await bot.process_commands(message)
