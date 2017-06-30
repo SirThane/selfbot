@@ -246,7 +246,7 @@ class General:
     async def pressf(self, ctx):
         await ctx.message.delete()
         await ctx.send('**[Press F to RIP]**')
-        msg = await ctx.send(':pressf:')
+        msg = await ctx.send('<:pressf:327966024919941120>')
         await msg.add_reaction(u'👆')
 
     @commands.command(name='learnpy')
