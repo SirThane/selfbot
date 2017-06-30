@@ -246,7 +246,7 @@ class General:
     async def pressf(self, ctx):
         await ctx.message.delete()
         await ctx.send('**[Press F to RIP]**')
-        msg = await ctx.send(':regional_indicator_f:')
+        msg = await ctx.send(':pressf:')
         await msg.add_reaction(u'👆')
 
     @commands.command(name='learnpy')
