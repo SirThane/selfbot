@@ -144,12 +144,16 @@ class General:
 
         timestamp = datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")
 
+        if member.default_avatar.name == 'grey':
+            color = discord.Colour.light_grey()
+        else:
+            color = getattr(discord.Colour, member.default_avatar.name)()
+
         emb = {
             'embed': {
                 'title': 'User Information For:',
                 'description': '{0.name}#{0.discriminator}'.format(member),
-                'color': getattr(discord.Colour,
-                                 member.default_avatar.name)() if not 'grey' else discord.Colour.light_grey()
+                'color': color
             },
             'author': {
                 'name': '{0.name}  ||  #{1.name}'.format(ctx.guild, ctx.channel),
