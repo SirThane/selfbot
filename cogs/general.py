@@ -148,7 +148,8 @@ class General:
             'embed': {
                 'title': 'User Information For:',
                 'description': '{0.name}#{0.discriminator}'.format(member),
-                'color': getattr(discord.Colour, member.default_avatar.name)() if not 'grey' else 'light_grey'
+                'color': getattr(discord.Colour,
+                                 member.default_avatar.name)() if not 'grey' else discord.Colour.light_grey()
             },
             'author': {
                 'name': '{0.name}  ||  #{1.name}'.format(ctx.guild, ctx.channel),
