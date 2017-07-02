@@ -33,7 +33,7 @@ class Notifications:
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
-        self.dbkey = f'{self.bot.app_name}:notifs'
+        self.dbkey = f'{self.bot.app_name}:notifs'  # I'm cheating. Gonna do them all this way. "selfbot:notifs"
         if not self.update_channel():
             log.warning('Notification channel could not be set')
         if not self.update_watched():
