@@ -29,68 +29,23 @@ def stdoutio(stdout=None):
 
 
 class Admin:
-
+    """Administrative commands"""
     def __init__(self, bot):
         self.bot = bot
         # self.config = bot.config
 
-    @commands.command(hidden=True)
-    async def load(self, ctx, *, cog: str, verbose: bool=False):
-        """load a module"""
-        cog = 'cogs.{}'.format(cog)
-        try:
-            self.bot.load_extension(cog)
-        except Exception as e:
-            if not verbose:
-                await ctx.message.edit(content='{}: {}'.format(type(e).__name__, e))
-            else:
-                await ctx.message.edit(content=traceback.print_tb(e.__traceback__))
-        else:
-            await ctx.message.edit(content="Module loaded successfully.")
+    async def response(self, ctx, message: str, color):
 
-    @commands.command(hidden=True)
-    async def unload(self, ctx, *, cog: str):
-        """Unloads a module."""
-        cog = 'cogs.{}'.format(cog)
-        try:
-            self.bot.unload_extension(cog)
-        except Exception as e:
-            await ctx.message.edit(content='{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.message.edit(content='Module unloaded successfully.')
-
-    @commands.command(hidden=True)
-    async def reload(self, ctx, *, cog: str):
-        """Reloads a module."""
-        cog = 'cogs.{}'.format(cog)
-        try:
-            self.bot.unload_extension(cog)
-            sleep(1)
-            self.bot.load_extension(cog)
-        except Exception as e:
-            await ctx.message.edit(content='Failed.')
-            sleep(1)
-            await ctx.message.edit(content='{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.message.edit(content='Module reloaded.')
-
-    @commands.command(hidden=True, name='await')
-    async def _await(self, ctx, *, code):
-
-        try:
-            await eval(code)
-        except Exception as e:
-            await ctx.send(str(e))
-        else:
+        if self.bot.owner_id:
             await ctx.message.delete()
+            resp = await ctx.send(embed=discord.Embed(title=message, color=color))
+        else:
+            resp = ctx.message
+            await ctx.message.edit(embed=discord.Embed(title=message, color=color))
+        await asyncio.sleep(3)
+        await resp.delete()
 
-    # Thanks to rapptz
-    @commands.command(hidden=True, name='eval')
-    async def _eval(self, ctx, *, code: str):
-        """Run eval() on an input."""
-
-        code = code.strip('` ')
-        python = '```py\n{0}\n```'
+    def env(self, ctx):
         env = {
             'bot': self.bot,
             'ctx': ctx,
@@ -101,34 +56,85 @@ class Admin:
             'discord': discord,
             'random': random
         }
-
         env.update(globals())
+        return env
+
+    @commands.command(hidden=True)
+    async def load(self, ctx, *, cog: str):
+        """load a module"""
+        cog = 'cogs.{}'.format(cog)
+        try:
+            self.bot.load_extension(cog)
+        except Exception as e:
+            await self.response(ctx, '{}: {}'.format(type(e).__name__, e), 0xFF0000)
+        else:
+            await self.response(ctx, "Module loaded successfully.", 0x00FF00)
+
+    @commands.command(hidden=True)
+    async def unload(self, ctx, *, cog: str):
+        """Unloads a module."""
+        cog = 'cogs.{}'.format(cog)
+        try:
+            self.bot.unload_extension(cog)
+        except Exception as e:
+            await self.response(ctx, '{}: {}'.format(type(e).__name__, e), 0xFF0000)
+        else:
+            await self.response(ctx, 'Module unloaded successfully.', 0x00FF00)
+
+    @commands.command(hidden=True)
+    async def reload(self, ctx, *, cog: str):
+        """Reloads a module."""
+        cog = 'cogs.{}'.format(cog)
+        try:
+            self.bot.unload_extension(cog)
+            await asyncio.sleep(1)
+            self.bot.load_extension(cog)
+        except Exception as e:
+            await self.response(ctx, '{}: {}'.format(type(e).__name__, e), 0xFF0000)
+        else:
+            await self.response(ctx, 'Module reloaded.', 0x00FF00)
+
+    @commands.command(hidden=True, name='await')
+    async def _await(self, ctx, *, code):
 
         try:
-            result = eval(code, env)
+            resp = eval(code)
+            if inspect.isawaitable(resp):
+                await resp
+        except Exception as e:
+            await ctx.send(str(e))
+        finally:
+            await ctx.message.delete()
+
+    # Thanks to rapptz
+    @commands.command(hidden=True, name='eval')
+    async def _eval(self, ctx, *, code: str):
+        """Run eval() on an input."""
+
+        code = code.strip('` ')
+        python = '```py\n{0}\n```'
+
+        try:
+            result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
             result = str(result)[:1014]
-            emb = {
-                'color': 0x00FF00,
-                'field': {
-                    'name': 'Yielded result:',
-                    'value': python.format(result),
-                    'inline': False
-                }
+            color = 0x00FF00
+            field = {
+                'name': 'Yielded result:',
+                'value': python.format(result),
+                'inline': False
             }
         except Exception as e:
-            emb = {
-                'color': 0xFF0000,
-                'field': {
-                    'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
-                    'value': '{0} '.format(e),
-                    'inline': False
-                }
+            color = 0xFF0000
+            field = {
+                'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
+                'value': '{0} '.format(e),
+                'inline': False
             }
 
-        embed = discord.Embed(title="Eval on:", description=python.format(code), color=emb['color'])
-        embed.add_field(**emb['field'])
+        embed = discord.Embed(title="Eval on:", description=python.format(code), color=color)
+        embed.add_field(**field)
 
         await ctx.message.delete()
         await ctx.channel.send(embed=embed)
@@ -140,44 +146,27 @@ class Admin:
         code = code.strip('```\n ')
         python = '```py\n{0}\n```'
 
-        env = {
-            'bot': self.bot,
-            'ctx': ctx,
-            'message': ctx.message,
-            'guild': ctx.message.guild,
-            'channel': ctx.message.channel,
-            'author': ctx.message.author,
-            'discord': discord,
-        }
-
-        env.update(globals())
-
         try:
             with stdoutio() as s:
-                exec(code, env)
+                exec(code, self.env(ctx))
                 result = str(s.getvalue())
             result = str(result)[:1014]
-        except Exception as e:
-            emb = {
-                'color': 0xff0000,
-                'field': {
-                    'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
-                    'value': str(e),
-                    'inline': False
-                }
+            color = 0x00FF00
+            field = {
+                'inline': False,
+                'name': 'Yielded result(s):',
+                'value': python.format(result)
             }
-        else:
-            emb = {
-                'color': 0x00ff00,
-                'field': {
-                    'name': 'Yielded result(s):',
-                    'value': python.format(result),
-                    'inline': False
-                }
+        except Exception as e:
+            color = 0xFF0000
+            field = {
+                'inline': False,
+                'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
+                'value': str(e)
             }
 
-        embed = discord.Embed(title="Exec on:", description=python.format(code), color=emb['color'])
-        embed.add_field(**emb['field'])
+        embed = discord.Embed(title="Exec on:", description=python.format(code), color=color)
+        embed.add_field(**field)
 
         await ctx.message.delete()
         await ctx.send(embed=embed)

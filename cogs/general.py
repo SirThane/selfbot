@@ -103,23 +103,6 @@ class General:
     #         await self.bot.send_message(discord.Object(id="291451280902193152"),
     #                                     "M*)(B8mdu98vuw09vmdfj",
     #                                     embed=embed)
-    #
-    # @commands.command(name="ujd")
-    # async def _joined(self, ctx, user: utils.UserType = None):  # MAKE THIS AN EMBED WITH USER AVATAR
-    #     """[p]ujd <userid>
-    #
-    #     Returns member.joined_at for member on current guild."""
-    #     svr = ctx.message.author.guild
-    #     usr = discord.utils.get(svr.members, id=uid)
-    #     if usr is not None:
-    #         reply = '```py\n"{0.display_name} ({0})" joined "{1.name}" on:\n{0.joined_at}\n```'.format(usr, svr)
-    #         await ctx.message.edit(reply)
-    #     else:
-    #         await ctx.message.edit('```py\nUser {0} is not a member of {1.name}\n```'.format(uid, svr))
-    #         try:
-    #             await self.bot.add_reaction(ctx.message, "\N{THUMBS UP SIGN}")
-    #         except AttributeError:
-    #             await self.bot.delete_message(ctx.message)
 
     @commands.command(aliases=['getuserinfo', 'userinfo'], no_private=True)
     async def _getuserinfo(self, ctx, member: discord.Member=None):

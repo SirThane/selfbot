@@ -7,3 +7,5 @@ cogs/utils/__pycache__/
 cogs/utils/messages.py
 selfbot.log
 test.py
+/redis.json
+redis.json
