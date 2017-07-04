@@ -218,19 +218,19 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_ready():
-    # app_info = await bot.application_info()
-    # bot.owner = discord.utils.get(bot.get_all_members(), id=app_info.owner.id)
-    # await bot.change_presence(game=discord.Game(name=f'{bot.command_prefix[0]}help'))
+    # app_info = await bot.application_info()  # Bot Only
+    # bot.owner = discord.utils.get(bot.get_all_members(), id=app_info.owner.id)  # Bot only
+    # await bot.change_presence(game=discord.Game(name=f'{bot.command_prefix[0]}help'))  # Bot only
 
     print(f'#-------------------------------#\n'
           f'| Successfully logged in.\n'
           f'#-------------------------------#\n'
           f'| Username:  {bot.user.name}\n'
           f'| User ID:   {bot.user.id}\n'
-          # f'| Owner:     {bot.owner}\n'
+          # f'| Owner:     {bot.owner}\n'  # Bot only
           f'| Guilds:    {len(bot.guilds)}\n'
           f'| Users:     {len(list(bot.get_all_members()))}\n'
-          # f'| OAuth URL: {discord.utils.oauth_url(bot.user.id)}\n'
+          # f'| OAuth URL: {discord.utils.oauth_url(bot.user.id)}\n'  # Bot only
           f'# ------------------------------#')
 
     print(f'\n'
@@ -246,6 +246,8 @@ async def on_ready():
             print('| Failed to load extension {}\n|   {}: {}'.format(cog, type(e).__name__, e))
 
     print(f'#-------------------------------#\n')
+    await asyncio.sleep(5)
+    await bot.change_presence(afk=True)
 
 
 @bot.event
