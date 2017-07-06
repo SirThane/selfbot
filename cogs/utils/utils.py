@@ -81,19 +81,16 @@ def format_embed(embed, member):
     return embed
 
 
-class UserType:
-
-    def __init__(self, argument):
-
-        if isinstance(argument, discord.Member):
-            self.user_id = argument.id
-        elif check_ids(argument):
-            self.user_id = argument
-        else:
-            raise commands.BadArgument("User not found.")
-
-
-# More stuff from robodanny, because it's honestly a really elegant way of doing what I wanted to otherwise do
+# class UserType:  # Just cast function args as discord.Member
+#
+#     def __init__(self, argument):
+#
+#         if isinstance(argument, discord.Member):
+#             self.user_id = argument.id
+#         elif check_ids(argument):
+#             self.user_id = argument
+#         else:
+#             raise commands.BadArgument("User not found.")
 
 
 def bool_str(arg):
