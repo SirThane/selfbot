@@ -98,7 +98,7 @@ class Admin:
     async def _await(self, ctx, *, code):
 
         try:
-            resp = eval(code)
+            resp = eval(code, self.env(ctx))
             if inspect.isawaitable(resp):
                 await resp
         except Exception as e:
