@@ -237,6 +237,21 @@ class General:
         msg = await ctx.send('<:pressf:327966024919941120>')
         await msg.add_reaction(u'👆')
 
+    @commands.command(name='unlocked')
+    async def unlocked(self, ctx, *, msg):
+        emb = discord.Embed(description=f":xbox: **Achievement Unlocked**: {msg}", color=discord.Colour.green())
+        await ctx.message.delete()
+        await ctx.send(embed=emb)
+
+    @commands.command(name='emoji')
+    async def emoji(self, ctx, *, emoji: discord.Emoji):
+        emb = discord.Embed(title=f'{emoji.name} ({emoji.id})', url=f'{emoji.url}',
+                            description=f'From guild: {emoji.guild}',
+                            color=ctx.guild.me.color)
+        emb.set_image(url=emoji.url)
+        emb.set_footer(text=emoji.url)
+        await ctx.send(embed=emb)
+
     @commands.command(name='learnpy')
     async def learnpy(self, ctx):
         await ctx.message.delete()
