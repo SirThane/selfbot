@@ -225,6 +225,7 @@ async def on_member_join(m):
         em = discord.Embed(title=m.guild.name,
                            description=f'Guild has reached {m.guild.member_count} members.',
                            color=discord.Colour.green())
+        em.set_thumbnail(url=m.guild.icon_url)
         await me_channel.send(f'$notif {m.guild.default_channel}', embed=em)
 
 
