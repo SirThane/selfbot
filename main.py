@@ -216,9 +216,6 @@ async def on_command_error(ctx, error):
         traceback.print_tb(error.__traceback__, file=sys.stderr)
 
 
-me_channel = bot.get_channel(id=193595671448780800)
-
-
 @bot.event
 async def on_member_join(m):
     if m.guild.member_count % 1000 == 0:
@@ -226,7 +223,7 @@ async def on_member_join(m):
                            description=f'Guild has reached {m.guild.member_count} members.',
                            color=discord.Colour.green())
         em.set_thumbnail(url=m.guild.icon_url)
-        await me_channel.send(f'$notif {m.guild.default_channel}', embed=em)
+        await bot.get_channel(193595671448780800).send(f'$notif {m.guild.default_channel}', embed=em)
 
 
 @bot.event
