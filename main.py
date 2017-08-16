@@ -223,7 +223,7 @@ async def on_member_join(m):
                            description=f'Guild has reached {m.guild.member_count} members.',
                            color=discord.Colour.green())
         em.set_thumbnail(url=m.guild.icon_url)
-        await bot.get_channel(193595671448780800).send(f'$notif {m.guild.default_channel}', embed=em)
+        await bot.get_channel(193595671448780800).send(f'$notif {m.guild.default_channel.id}', embed=em)
 
 
 @bot.event
