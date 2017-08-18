@@ -7,6 +7,7 @@ import discord
 from random import randint
 # import re
 import asyncio
+import argparse
 
 from urllib.parse import urlencode
 
@@ -231,9 +232,11 @@ class General:
     #     await ctx.send(embed=em)
 
     @commands.command(name='pressf')
-    async def pressf(self, ctx):
+    async def pressf(self, ctx, *, to: str=None):
         await ctx.message.delete()
-        await ctx.send('**[Press F to RIP]**')
+        if not to:
+            to = "RIP"
+        await ctx.send(f'**[Press F to {to}]**')
         msg = await ctx.send('<:pressf:327966024919941120>')
         await msg.add_reaction(u'👆')
 
@@ -271,6 +274,15 @@ https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
 """
         await ctx.send(msg)
 
+    @commands.command(name='embed')
+    async def _embed(self, ctx, *, args: str=None):
+        args = args.split()
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-t", "--title", help="Embed Title")
+        parser.add_argument("-d", "--description", help="Embed Description")
+        parser.add_argument("-c", "--color", help="Embed Color")
+        parsed = parser.parse_args(args)
+        await ctx.send(f"{type(parsed)}: {parsed}")
 
 def setup(bot):
     bot.add_cog(General(bot))
