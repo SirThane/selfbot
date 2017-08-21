@@ -130,7 +130,7 @@ class Notifications:
         else:
             await resp(ctx, 'Remove Phrase', 'Phrase not in list.', red)
 
-    async def on_message(self, message):
+    async def action_on_message(self, message):
         if hasattr(self, 'channel') and message.author.id != self.bot.user.id\
                 and not isinstance(message.channel, discord.DMChannel):
             l = self.watched
@@ -148,6 +148,12 @@ class Notifications:
                     <#{message.channel.id}>', embed=em)
                 except AttributeError:
                     log.warning('Channel not set: {}'.format(self.db.hget(f'{self.dbkey}:config', 'channel')))
+
+    async def on_message(self, message):
+        await self.action_on_message(message)
+
+    async def on_message_edit(self, before, after):
+        await self.action_on_message(after)
 
 
 def setup(bot):
