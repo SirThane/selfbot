@@ -1,5 +1,5 @@
 from discord.ext import commands
-from .utils import checks
+from .utils import checks, utils
 import discord
 import inspect
 import logging
@@ -26,6 +26,18 @@ class REPL:
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
+        self.emb_pag = utils.Paginator(1014)
+
+    @property
+    def emb_dict(self):
+        d = {
+            "fields": []
+        }
+        return d
+
+    @property
+    def py(self):
+        return '```py\n{0}\n```'
 
     def env(self, ctx):
         import random
@@ -41,17 +53,6 @@ class REPL:
         }
         env.update(globals())
         return env
-
-    # @checks.sudo()
-    # @commands.group(hidden=True, name='venv', invoke_without_subcommand=True)
-    # async def _venv(self, ctx, *, guild: discord.Guild=None):
-    #     pass
-    #
-    # @checks.sudo()
-    # @_venv.command(hidden=True, name='quit')
-    # async def _quit(self, ctx):
-    #     self.venv = False
-
 
     @checks.sudo()
     @commands.command(hidden=True, name='await')
@@ -74,29 +75,39 @@ class REPL:
         """Run eval() on an input."""
 
         code = code.strip('` ')
-        python = '```py\n{0}\n```'
+        emb = self.emb_dict
+        emb['title'] = "Eval on:"
+        emb['description'] = self.py.format(code)
 
         try:
             result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
-            result = str(result)[:1014]
-            color = 0x00FF00
+            result = self.emb_pag.paginate(result)
+            emb['color'] = 0x00FF00
             field = {
                 'name': 'Yielded result:',
-                'value': python.format(result),
+                'value': self.py.format(result[0]),
                 'inline': False
             }
+            emb['fields'].append(field)
+            for i in range(1, len(result) + 1):
+                field = {
+                    'name': "Cont.",
+                    'value': self.py.format(result[i]),
+                    'inline': False
+                }
+                emb['fields'].append(field)
         except Exception as e:
-            color = 0xFF0000
+            emb['color'] = 0xFF0000
             field = {
                 'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
-                'value': '{0} '.format(e),
+                'value': '{0}'.format(e),
                 'inline': False
             }
+            emb['fields'].append(field)
 
-        embed = discord.Embed(title="Eval on:", description=python.format(code), color=color)
-        embed.add_field(**field)
+        embed = discord.Embed().from_data(emb)
 
         await ctx.message.delete()
         await ctx.channel.send(embed=embed)

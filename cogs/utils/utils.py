@@ -93,6 +93,41 @@ def format_embed(embed, member):
 #             raise commands.BadArgument("User not found.")
 
 
+class Paginator:
+
+    def __init__(self, limit=1000):
+        self.limit = limit
+
+    def paginate(self, value):
+        """
+        To paginate a string into a list of strings under
+        `self.limit` characters.
+        :param value: string to paginate
+        :return list: list of strings under 'lim' chars
+        """
+        spl = value.split('\n')
+        ret = []
+        page = ''
+        for i in spl:
+            if (len(page) + len(i)) < self.limit:
+                page += '\n{}'.format(i)
+            else:
+                if page:
+                    ret.append(page)
+                if len(i) > (self.limit - 1):
+                    tmp = i
+                    while len(tmp) > (self.limit - 1):
+                        ret.append(tmp[:self.limit])
+                        tmp = tmp[self.limit:]
+                    else:
+                        page = tmp
+                else:
+                    page = i
+        else:
+            ret.append(page)
+        return ret
+
+
 def bool_str(arg):
     if arg == 'True':
         return True
