@@ -242,7 +242,8 @@ class General:
 
     @commands.command(name='unlocked')
     async def unlocked(self, ctx, *, msg):
-        emb = discord.Embed(description=f":xbox: **Achievement Unlocked**: {msg}", color=discord.Colour.green())
+        emb = discord.Embed(description=f"<:xbox:285631858400559104> **Achievement Unlocked**: {msg}",
+                            color=discord.Colour.green())
         await ctx.message.delete()
         await ctx.send(embed=emb)
 
