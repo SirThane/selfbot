@@ -95,34 +95,47 @@ def format_embed(embed, member):
 
 class Paginator:
 
-    def __init__(self, limit=1000):
-        self.limit = limit
+    def __init__(self, page_limit=1000, trunc_limit=2000):
+        self.page_limit = page_limit
+        self.trunc_limit = trunc_limit
 
     def paginate(self, value):
         """
         To paginate a string into a list of strings under
-        `self.limit` characters.
+        `self.page_limit` characters. Total len of strings
+        will not exceed `self.trunc_limit`.
         :param value: string to paginate
-        :return list: list of strings under 'lim' chars
+        :return list: list of strings under 'page_limit' chars
         """
-        spl = value.split('\n')
+        spl = str(value).split('\n')
         ret = []
         page = ''
+        total = 0
         for i in spl:
-            if (len(page) + len(i)) < self.limit:
-                page += '\n{}'.format(i)
-            else:
-                if page:
-                    ret.append(page)
-                if len(i) > (self.limit - 1):
-                    tmp = i
-                    while len(tmp) > (self.limit - 1):
-                        ret.append(tmp[:self.limit])
-                        tmp = tmp[self.limit:]
-                    else:
-                        page = tmp
+            if total + len(page) < self.trunc_limit:
+                if (len(page) + len(i)) < self.page_limit:
+                    page += '\n{}'.format(i)
                 else:
-                    page = i
+                    if page:
+                        total += len(page)
+                        ret.append(page)
+                    if len(i) > (self.page_limit - 1):
+                        tmp = i
+                        while len(tmp) > (self.page_limit - 1):
+                            if total + len(tmp) < self.trunc_limit:
+                                total += len(tmp[:self.page_limit])
+                                ret.append(tmp[:self.page_limit])
+                                tmp = tmp[self.page_limit:]
+                            else:
+                                ret.append(tmp[:self.trunc_limit - total])
+                                break
+                        else:
+                            page = tmp
+                    else:
+                        page = i
+            else:
+                ret.append(page[:self.trunc_limit - total])
+                break
         else:
             ret.append(page)
         return ret

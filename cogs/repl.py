@@ -91,7 +91,7 @@ class REPL:
                 'inline': False
             }
             emb['fields'].append(field)
-            for i in range(1, len(result) + 1):
+            for i in range(1, len(result)):
                 field = {
                     'name': "Cont.",
                     'value': self.py.format(result[i]),
