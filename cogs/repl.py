@@ -50,7 +50,8 @@ class REPL:
             'channel': ctx.message.channel,
             'author': ctx.message.author,
             'discord': discord,
-            'random': random
+            'random': random,
+            'ret': self.ret
         }
         env.update(globals())
         return env
