@@ -26,7 +26,7 @@ class REPL:
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
-        self.ret = None
+        self.ret = []
         self.emb_pag = utils.Paginator(1014)
 
     @property
@@ -39,6 +39,11 @@ class REPL:
     @property
     def py(self):
         return '```py\n{0}\n```'
+
+    def ret_update(self, ret):
+        self.ret.insert(0, ret)
+        if len(self.ret) > 10:
+            self.ret.pop(10)
 
     def env(self, ctx):
         import random
@@ -85,7 +90,7 @@ class REPL:
             result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
-            self.ret = result
+            self.ret_update(result)
             result = self.emb_pag.paginate(result)
             emb['color'] = 0x00FF00
             field = {
