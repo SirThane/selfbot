@@ -73,31 +73,39 @@ def get_timestamp():
     return time.strftime("%a %b %d, %Y at %H:%M %Z", now)
 
 
-def format_embed(embed, member):
-    """Do basic formatting on the embed"""
-    embed.set_author(name=member.name, icon_url=member.avatar_url)
-    embed.add_field(name="User ID", value=member.id)
-    embed.set_footer(text=get_timestamp())
-    return embed
-
-
-# class UserType:  # Just cast function args as discord.Member
-#
-#     def __init__(self, argument):
-#
-#         if isinstance(argument, discord.Member):
-#             self.user_id = argument.id
-#         elif check_ids(argument):
-#             self.user_id = argument
-#         else:
-#             raise commands.BadArgument("User not found.")
-
-
 class Paginator:
 
-    def __init__(self, page_limit=1000, trunc_limit=2000):
+    def __init__(self, page_limit=1000, trunc_limit=2000, headers=None, header_extender=u'\u200b'):
         self.page_limit = page_limit
         self.trunc_limit = trunc_limit
+        self._pages = None
+        self._header_extender = header_extender
+        self.set_headers(headers)
+
+    @property
+    def pages(self):
+        if self._headers:
+            self._extend_headers(len(self._pages))
+            headers, self._headers = self._headers, None
+            return [(self._headers[i], self._pages[i]) for i in range(len(self._pages))]
+        else:
+            return self.pages
+
+    def set_headers(self, headers=None):
+        self._headers = headers
+
+    def set_header_extender(self, header_extender: str=u'\u200b'):
+        self._header_extender = header_extender
+
+    def _extend_headers(self, length: int):
+        while len(self._headers) < length:
+            self._headers.append(u'\u200b')
+
+    def set_trunc_limit(self, limit: int=2000):
+        self.trunc_limit = limit
+
+    def set_page_limit(self, limit: int=1000):
+        self.page_limit = limit
 
     def paginate(self, value):
         """
@@ -138,7 +146,8 @@ class Paginator:
                 break
         else:
             ret.append(page)
-        return ret
+        self._pages = ret
+        return self.pages
 
 
 def bool_str(arg):

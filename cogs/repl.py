@@ -27,11 +27,12 @@ class REPL:
         self.bot = bot
         self.db = bot.db
         self.ret = []
-        self.emb_pag = utils.Paginator(1014)
+        self.emb_pag = utils.Paginator(page_limit=1014, header_extender='Cont.')
 
-    @property
-    def emb_dict(self):
+    def emb_dict(self, title, desc):
         d = {
+            "title": title,
+            "description": desc,
             "fields": []
         }
         return d
@@ -82,27 +83,19 @@ class REPL:
         """Run eval() on an input."""
 
         code = code.strip('` ')
-        emb = self.emb_dict
-        emb['title'] = "Eval on:"
-        emb['description'] = self.py.format(code)
+        emb = self.emb_dict(title='Eval on', desc=self.py.format(code))
 
         try:
             result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
             self.ret_update(result)
-            result = self.emb_pag.paginate(result)
+            self.emb_pag.set_headers(['Yielded result:'])
             emb['color'] = 0x00FF00
-            field = {
-                'name': 'Yielded result:',
-                'value': self.py.format(result[0]),
-                'inline': False
-            }
-            emb['fields'].append(field)
-            for i in range(1, len(result)):
+            for h, v in self.emb_pag.paginate(result):
                 field = {
-                    'name': "Cont.",
-                    'value': self.py.format(result[i]),
+                    'name': h,
+                    'value': self.py.format(v),
                     'inline': False
                 }
                 emb['fields'].append(field)
@@ -126,29 +119,31 @@ class REPL:
         """Run exec() on an input."""
 
         code = code.strip('```\n ')
-        python = '```py\n{0}\n```'
+        emb = self.emb_dict(title='Exec on', desc=self.py.format(code))
 
         try:
             with stdoutio() as s:
                 exec(code, self.env(ctx))
                 result = str(s.getvalue())
-            result = str(result)[:1014]
-            color = 0x00FF00
-            field = {
-                'inline': False,
-                'name': 'Yielded result(s):',
-                'value': python.format(result)
-            }
+            self.emb_pag.set_headers(['Yielded result:'])
+            emb['color'] = 0x00FF00
+            for h, v in self.emb_pag.paginate(result):
+                field = {
+                    'name': h,
+                    'value': self.py.format(v),
+                    'inline': False,
+                }
+                emb['fields'].append(field)
         except Exception as e:
-            color = 0xFF0000
+            emb['color'] = 0xFF0000
             field = {
                 'inline': False,
                 'name': 'Yielded exception "{0.__name__}":'.format(type(e)),
                 'value': str(e)
             }
+            emb['fields'].append(field)
 
-        embed = discord.Embed(title="Exec on:", description=python.format(code), color=color)
-        embed.add_field(**field)
+        embed = discord.Embed().from_data(emb)
 
         await ctx.message.delete()
         await ctx.send(embed=embed)

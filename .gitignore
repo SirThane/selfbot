@@ -9,3 +9,4 @@ selfbot.log
 test.py
 /redis.json
 redis.json
+/cogs/embed.json
