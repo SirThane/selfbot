@@ -87,7 +87,7 @@ class Paginator:
         if self._headers:
             self._extend_headers(len(self._pages))
             headers, self._headers = self._headers, None
-            return [(self._headers[i], self._pages[i]) for i in range(len(self._pages))]
+            return [(headers[i], self._pages[i]) for i in range(len(self._pages))]
         else:
             return self.pages
 

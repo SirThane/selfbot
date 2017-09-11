@@ -27,7 +27,7 @@ class REPL:
         self.bot = bot
         self.db = bot.db
         self.ret = []
-        self.emb_pag = utils.Paginator(page_limit=1014, header_extender='Cont.')
+        self.emb_pag = utils.Paginator(page_limit=1014, trunc_limit=1850, header_extender='Cont.')
 
     def emb_dict(self, title, desc):
         d = {
