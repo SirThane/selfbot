@@ -39,6 +39,10 @@ class Notifications:
         if not self.update_watched():
             log.info('Notifications cogs loaded. Watch list empty.')
 
+    @property
+    def watched(self):
+        return [i for i in self._watched]
+
     def update_channel(self, channel_id: int=None):
         if channel_id:
             channel = self.bot.get_channel(id=channel_id)
@@ -65,20 +69,20 @@ class Notifications:
             if add:
                 ret = self.db.sadd(f'{self.dbkey}:watched', phrase)
                 if ret:
-                    self.watched = list(self.db.smembers(f'{self.dbkey}:watched'))
+                    self._watched = list(self.db.smembers(f'{self.dbkey}:watched'))
                     return True  # item added
                 else:
                     return False  # item already in DB
             else:
                 ret = self.db.srem(f'{self.dbkey}:watched', phrase)
                 if ret:
-                    self.watched = list(self.db.smembers(f'{self.dbkey}:watched'))
+                    self._watched = list(self.db.smembers(f'{self.dbkey}:watched'))
                     return True  # item removed
                 else:
                     return False  # item not in DB
         else:
-            self.watched = list(self.db.smembers(f'{self.dbkey}:watched'))
-            if len(self.watched) > 0:
+            self._watched = list(self.db.smembers(f'{self.dbkey}:watched'))
+            if len(self._watched) > 0:
                 return True  # watch list updated
             else:
                 return False  # watch list empty
@@ -111,7 +115,7 @@ class Notifications:
     @phrase.command(name='list')
     async def _list(self, ctx):
         self.update_watched()
-        l = '\n'.join(self.watched)
+        l = '\n'.join(self._watched)
         if l == '':
             l = 'No phrases are currently being watched.'
         await resp(ctx, 'Watched Phrases', l, green)
