@@ -3,6 +3,7 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
+import pytz
 import logging
 import asyncio
 
@@ -10,6 +11,7 @@ import asyncio
 log = logging.getLogger()
 green = 0x00FF00
 red = 0xFF0000
+tz = pytz.timezone('America/Kentucky/Louisville')
 
 
 async def resp(ctx, title, message, color: int, delete=True):
@@ -136,12 +138,12 @@ class Notifications:
 
     async def action_on_message(self, message):
         if hasattr(self, 'channel') and message.author.id != self.bot.user.id\
-                and not isinstance(message.channel, discord.DMChannel):
+                and isinstance(message.channel, discord.TextChannel):
             l = self.watched
             l.append(message.guild.me.display_name.lower())
             if any(map(lambda x: x in message.content.lower(), l)):
                 author = message.author
-                timestamp = datetime.utcnow().strftime("%b. %d, %Y %I:%M %p")
+                timestamp = tz.localize(datetime.now()).strftime("%b. %d, %Y %I:%M %p")
                 display_name = f' ({author.display_name})' if author.display_name != author.name else ''
                 em = discord.Embed(title='{0.guild}: #{0.channel} at {1}'.format(message, timestamp),
                                    description=message.content, color=author.color)
@@ -158,7 +160,6 @@ class Notifications:
 
     async def on_message_edit(self, before, after):
         await self.action_on_message(after)
-
 
 def setup(bot):
     bot.add_cog(Notifications(bot))
