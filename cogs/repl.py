@@ -26,7 +26,8 @@ class REPL:
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
-        self.ret = []
+        self.ret = None
+        self.store = {}
         self.emb_pag = utils.Paginator(page_limit=1014, trunc_limit=1850, header_extender='Cont.')
 
     def emb_dict(self, title, desc):
@@ -41,11 +42,6 @@ class REPL:
     def py(self):
         return '```py\n{0}\n```'
 
-    def ret_update(self, ret):
-        self.ret.insert(0, ret)
-        if len(self.ret) > 10:
-            self.ret.pop(10)
-
     def env(self, ctx):
         import random
         env = {
@@ -57,9 +53,11 @@ class REPL:
             'author': ctx.message.author,
             'discord': discord,
             'random': random,
-            'ret': self.ret
+            'ret': self.ret,
+            'store': self.store
         }
         env.update(globals())
+        env.update(self.store)
         return env
 
     @checks.sudo()
@@ -89,7 +87,7 @@ class REPL:
             result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
-            self.ret_update(result)
+            self.ret = result
             self.emb_pag.set_headers(['Yielded result:'])
             emb['color'] = 0x00FF00
             for h, v in self.emb_pag.paginate(result):
