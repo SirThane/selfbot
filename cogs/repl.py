@@ -70,7 +70,7 @@ class REPL:
         self._env_store[name] = self.ret
         emb = discord.Embed(title='Environment Updated', color=discord.Colour.green())
         emb.add_field(name=name, value=repr(self.ret))
-        await ctx.send(emb)
+        await ctx.send(embed=emb)
 
     @checks.sudo()
     @env.command(hidden=True, name='remove', aliases=['rem', 'del', 'pop'])
@@ -81,7 +81,7 @@ class REPL:
             emb.add_field(name=name, value=repr(v))
         else:
             emb = discord.Embed(title='Environment Item Not Found', description=name, color=discord.Colour.red())
-        await ctx.send(emb)
+        await ctx.send(embed=emb)
 
     @checks.sudo()
     @commands.command(hidden=True, name='await')
