@@ -67,20 +67,40 @@ class REPL:
     @checks.sudo()
     @env.command(hidden=True, name='update')
     async def _update(self, ctx, name):
-        self._env_store[name] = self.ret
-        emb = discord.Embed(title='Environment Updated', color=discord.Colour.green())
-        emb.add_field(name=name, value=repr(self.ret))
+        if name:
+            self._env_store[name] = self.ret
+            emb = discord.Embed(title='Environment Updated', color=discord.Colour.green())
+            emb.add_field(name=name, value=repr(self.ret))
+        else:
+            emb = discord.Embed(title='Environment Update', description='You must enter a name',
+                                color=discord.Colour.red())
         await ctx.send(embed=emb)
 
     @checks.sudo()
     @env.command(hidden=True, name='remove', aliases=['rem', 'del', 'pop'])
     async def _remove(self, ctx, name):
-        v = self._env_store.pop(name, None)
+        if name:
+            v = self._env_store.pop(name, None)
+        else:
+            v = None
+            name = 'You must enter a name'
         if v:
             emb = discord.Embed(title='Environment Item Removed', color=discord.Colour.green())
             emb.add_field(name=name, value=repr(v))
         else:
             emb = discord.Embed(title='Environment Item Not Found', description=name, color=discord.Colour.red())
+        await ctx.send(embed=emb)
+
+    @checks.sudo()
+    @env.command(hidden=True, name='list')
+    async def _list(self, ctx):
+        if len(self._env_store.keys()):
+            emb = discord.Embed(title='Environment Store List', color=discord.Colour.green())
+            for k, v in self._env_store.items():
+                emb.add_field(name=k, value=repr(v))
+        else:
+            emb = discord.Embed(title='Environment Store List', description='Environment Store is currently empty',
+                                color=discord.Colour.green())
         await ctx.send(embed=emb)
 
     @checks.sudo()
