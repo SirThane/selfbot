@@ -27,7 +27,7 @@ class REPL:
         self.bot = bot
         self.db = bot.db
         self.ret = None
-        self.store = {}
+        self._env_store = {}
         self.emb_pag = utils.Paginator(page_limit=1014, trunc_limit=1850, header_extender='Cont.')
 
     def emb_dict(self, title, desc):
@@ -42,7 +42,7 @@ class REPL:
     def py(self):
         return '```py\n{0}\n```'
 
-    def env(self, ctx):
+    def _env(self, ctx):
         import random
         env = {
             'bot': self.bot,
@@ -54,18 +54,41 @@ class REPL:
             'discord': discord,
             'random': random,
             'ret': self.ret,
-            'store': self.store
         }
         env.update(globals())
-        env.update(self.store)
+        env.update(self._env_store)
         return env
+
+    @checks.sudo()
+    @commands.group(hidden=True, name='env')
+    async def env(self, ctx):
+        pass
+
+    @checks.sudo()
+    @env.command(hidden=True, name='update')
+    async def _update(self, ctx, name):
+        self._env_store[name] = self.ret
+        emb = discord.Embed(title='Environment Updated', color=discord.Colour.green())
+        emb.add_field(name=name, value=repr(self.ret))
+        await ctx.send(emb)
+
+    @checks.sudo()
+    @env.command(hidden=True, name='remove', aliases=['rem', 'del', 'pop'])
+    async def _remove(self, ctx, name):
+        v = self._env_store.pop(name, None)
+        if v:
+            emb = discord.Embed(title='Environment Item Removed', color=discord.Colour.green())
+            emb.add_field(name=name, value=repr(v))
+        else:
+            emb = discord.Embed(title='Environment Item Not Found', description=name, color=discord.Colour.red())
+        await ctx.send(emb)
 
     @checks.sudo()
     @commands.command(hidden=True, name='await')
     async def _await(self, ctx, *, code):
 
         try:
-            resp = eval(code, self.env(ctx))
+            resp = eval(code, self._env(ctx))
             if inspect.isawaitable(resp):
                 await resp
             else:
@@ -84,7 +107,7 @@ class REPL:
         emb = self.emb_dict(title='Eval on', desc=self.py.format(code))
 
         try:
-            result = eval(code, self.env(ctx))
+            result = eval(code, self._env(ctx))
             if inspect.isawaitable(result):
                 result = await result
             self.ret = result
