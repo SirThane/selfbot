@@ -2,7 +2,7 @@ import asyncio
 import discord
 # import operator
 # import math
-# import datetime
+import datetime
 from discord.ext import commands
 
 
@@ -11,6 +11,7 @@ from discord.ext import commands
 
 <bot>:activity:config                                       # HASH for global defaults (used if guild default not set)
     cooldown_default                                        # Default cooldown duration
+    pad_amount_default                                      # Default amount of message to pad new users
     score_period_default                                    # Default period for which messages count towards score
     prune_period_default                                    # Default period beyond which messages are pruned out of DB
     
@@ -53,14 +54,18 @@ class ActivityMonitor:
         self._pad_channel = {}
         self._pad_amount = {}
         self._cooldown_duration = {}
+        self._score_period = {}
+
         self._recorded_members = self._load_guild_member_cache_from_db()
+        self._guilds = set([int(i) for i in self.db.smembers(f'{self.ns}:guilds')])
+
         self._builtin_defaults = {
             'cooldown': 5,
             'score_period': 90,
             'prune_period': 365,
             'weight': 1,
             'pad_enabled': False,
-            'pad_amound': 30
+            'pad_amount': 30
         }
 
     # Get (and cache) DB records and configs
@@ -68,7 +73,7 @@ class ActivityMonitor:
     def _load_guild_member_cache_from_db(self):
         recorded_members = {}
         for guild in self.db.smembers(f'{self.ns}:guilds'):
-            recorded_members[int(guild)] = []
+            recorded_members[int(guild)] = set()
             for member in self.db.smembers(f'{self.ns}:guilds:{guild}:members'):
                 recorded_members[int(guild)].add(int(member))
         return recorded_members
@@ -116,7 +121,7 @@ class ActivityMonitor:
                 if cooldown_duration:
                     self._cooldown_duration[channel_id] = int(cooldown_duration)
                 else:
-                    cooldown_duration = self.db.hget(f'{self.ns}:config', 'default_cooldown')
+                    cooldown_duration = self.db.hget(f'{self.ns}:config', 'cooldown_default')
                     if cooldown_duration:
                         cooldown_duration = int(cooldown_duration)
                         self._cooldown_duration[channel_id] = cooldown_duration
@@ -124,6 +129,22 @@ class ActivityMonitor:
                         cooldown_duration = self._builtin_defaults['cooldown']
                         self._cooldown_duration[channel_id] = cooldown_duration
         return cooldown_duration
+
+    def get_score_period(self, guild_id):
+        try:
+            score_period = self._score_period[guild_id]
+        except KeyError:
+            score_period = self.db.hget(f'{self.ns}:guilds:{guild_id}', 'score_period')
+            if score_period:
+                self._score_period[guild_id] = score_period
+            else:
+                score_period = self.db.hget(f'{self.ns}:config', 'score_period_default')
+                if score_period:
+                    self._score_period[guild_id] = score_period
+                else:
+                    score_period = self._builtin_defaults['score_period']
+                    self._score_period[guild_id] = score_period
+        return score_period
 
     def check_new_member(self, guild_id, member_id):
         """Check if a member has been recorded before."""
@@ -134,12 +155,12 @@ class ActivityMonitor:
             return False
         else:
             self._recorded_members[guild_id].add(member_id)
-            if not self.db.sismember(f"{self.ns}:guilds:{guild_id}:members", str(member_id)):
-                self.db.sadd(f"{self.ns}:guilds:{guild_id}:members", str(member_id))  # TODO: FINISH
+            self.db.sadd(f"{self.ns}:guilds:{guild_id}:members", str(member_id))
+            return True
 
-    def get_current_guild_config(self, guild_id):
-        """Get all current configuration options for a guild."""
-        pass
+    # def get_current_guild_config(self, guild_id):
+    #     """Get all current configuration options for a guild."""
+    #     pass  # TODO: IS THIS REALLY NEEDED?
 
     # Set and check cooldown
 
@@ -152,16 +173,16 @@ class ActivityMonitor:
     def check_cooldown(self, member, channel):
         if member.bot:
             return True
-        s = (member.id, channel.id)
-        return s in self.cooldown or member.id == self.bot.user.id
+        # s = (member.id, channel.id)
+        return (member.id, channel.id) in self.cooldown  #  or member.id == self.bot.user.id
 
     def check(self, m):
         """Returns early if in DMs, not a watched guild,
         or if user/channel currently on cooldown"""
-        if isinstance(m.channel, discord.TextChannel):
-            return False
+        if not isinstance(m.channel, discord.TextChannel):
+            return True
 
-        if not self.db.sismember(f'{self.ns}:guilds', str(m.guild.id)):
+        if m.guild.id not in self._guilds:
             return True
 
         return self.check_cooldown(m.author, m.channel)
@@ -173,12 +194,11 @@ class ActivityMonitor:
         if self.check(m):
             return
 
-        guild, channel, member, ts = m.guild, m.channel, m.author, m.created_at.timestamp()
+        guild, channel, member, ts = m.guild, m.channel, m.author, m.created_at
 
-        if self.pad_enabled(guild.id):
-            self._pad(guild.id, member.id)
-        self.db.zadd(f'{self.ns}:guilds:{guild.id}:members:{member.id}:{channel.id}', ts, m.id)
-        self.check_new_member(guild.id, member.id)
+        if self.pad_enabled(guild.id) and self.check_new_member(guild.id, member.id):
+            self._pad(guild.id, member.id, ts)
+        self.db.zadd(f'{self.ns}:guilds:{guild.id}:members:{member.id}:{channel.id}', ts.timestamp(), m.id)
 
         # self.bot.loop.create_task(self.put_cooldown(member, channel))
         await self.put_cooldown(member.id, channel.id, self.get_cooldown_dur(guild, channel))
@@ -189,8 +209,11 @@ class ActivityMonitor:
     async def on_member_remove(self, m):  # TODO: DELETE ACTIVITY RECORDS OR NAH?
         pass
 
-    def _pad(self, guild_id, member_id):
-        pass
+    def _pad(self, guild_id, member_id, ts):
+        pad_amount, score_period = self.get_pad_amount(guild_id), self.get_score_period(guild_id)
+        td = datetime.timedelta(seconds=((86400 * score_period) / pad_amount))
+        self.db.zadd(f'{self.ns}:guilds:{guild_id}:members:{member_id}:pad',
+                     **{str((pad_amount - i)): str((ts - (td * i)).timestamp()) for i in range(pad_amount)})
 
     # Configuration commands
 
