@@ -26,7 +26,8 @@ class REPL:
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
-        self.ret = []
+        self.ret = None
+        self.store = {}
         self.emb_pag = utils.Paginator(1014)
 
     @property
@@ -56,9 +57,11 @@ class REPL:
             'author': ctx.message.author,
             'discord': discord,
             'random': random,
-            'ret': self.ret
+            'ret': self.ret,
+            'store': self.store
         }
         env.update(globals())
+        env.update(self.store)
         return env
 
     @checks.sudo()
@@ -90,7 +93,7 @@ class REPL:
             result = eval(code, self.env(ctx))
             if inspect.isawaitable(result):
                 result = await result
-            self.ret_update(result)
+            self.ret = result
             result = self.emb_pag.paginate(result)
             emb['color'] = 0x00FF00
             field = {
