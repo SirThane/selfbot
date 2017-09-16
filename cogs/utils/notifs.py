@@ -150,8 +150,8 @@ class Notifications:
                 em.set_author(name='{0.name}#{0.discriminator}{1}'.format(author, display_name),
                               icon_url=author.avatar_url_as(format='png'))
                 try:
-                    await self.channel.send(f'$notif \
-                    {message.guild.name}: {message.channel.name}\n<#{message.channel.id}>', embed=em)
+                    await self.channel.send(f'$notif {message.guild.name}:'
+                                            f'{message.channel.name}\n<#{message.channel.id}>', embed=em)
                 except AttributeError:
                     log.warning('Channel not set: {}'.format(self.db.hget(f'{self.dbkey}:config', 'channel')))
 
