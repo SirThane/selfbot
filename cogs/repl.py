@@ -164,7 +164,7 @@ class REPL:
 
         try:
             with stdoutio() as s:
-                exec(code, self.env(ctx))
+                exec(code, self._env(ctx))
                 result = str(s.getvalue())
             self.emb_pag.set_headers(['Yielded result:'])
             emb['color'] = 0x00FF00
