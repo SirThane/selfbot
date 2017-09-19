@@ -257,14 +257,19 @@ class General:
         await ctx.send(embed=emb)
 
     @commands.command(name='boou')
-    async def boou(self, ctx, target: str):
+    async def boou(self, ctx, *, target: str):
         chars = {'1': ':one:', '2': ':two:', '3': ':three:', '4': ':four:', '5': ':five:',
                  '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:', '0': ':zero:'}
         chars.update({c: f":regional_indicator_{c}:" for c in list('abcdefghijklmnopqrstuvwxyz')})
-        for char in target:
-            if char not in chars.keys():
-                await ctx.send(f"Invalid character(s): {char}")
-                return
+
+        lines = target.split(' ')
+
+        for line in lines:
+            for char in line:
+                if char not in chars.keys():
+                    await ctx.send(f"Invalid character(s): {char}")
+                    return
+
         emojis = self.bot.get_guild(146626123990564864).emojis
         emojis = [discord.utils.get(emojis, name=n) for n in ["boou", "boou2", "boou3", "boou4", "boo"]]
 
@@ -272,9 +277,13 @@ class General:
             return f"{emojis[4]}{''.join([f'{emojis[i % 4]}{line[i]}' for i in range(len(line))])}" \
                    f"{emojis[len(line) % 4]}{emojis[4]}\n"
 
-        resp = add_line([emojis[4] for i in range(len(target))])
-        resp += add_line([chars[c.lower()] for c in list(target)])
-        resp += add_line([emojis[4] for i in range(len(target))])
+        m = max(map(len, lines))
+        lines = [[chars[c.lower()] for c in line] + ([emojis[4]] * (m - len(line))) for line in lines]
+
+        resp = add_line([emojis[4] for i in range(m)])
+        for line in lines:
+            resp += add_line(line)
+        resp += add_line([emojis[4] for i in range(m)])
 
         await ctx.message.delete()
         await ctx.send(resp)
