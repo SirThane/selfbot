@@ -272,15 +272,12 @@ class General:
             return f"{emojis[4]}{''.join([f'{emojis[i % 4]}{line[i]}' for i in range(len(line))])}" \
                    f"{emojis[len(line) % 4]}{emojis[4]}\n"
 
-        resp1 = add_line([emojis[4] for i in range(len(target))])
-        resp1 += add_line([chars[c] for c in list(target)])
-        resp2 = add_line([chars[c] for c in list(target)])
-        resp2 += add_line([emojis[4] for i in range(len(target))])
+        resp = add_line([emojis[4] for i in range(len(target))])
+        resp += add_line([chars[c.lower()] for c in list(target)])
+        resp += add_line([emojis[4] for i in range(len(target))])
 
         await ctx.message.delete()
-        await ctx.send(resp1)
-        await asyncio.sleep(0.1)
-        await ctx.send(resp2)
+        await ctx.send(resp)
 
     @commands.command(name='embed')
     async def _embed(self, ctx, *, args: str=None):
