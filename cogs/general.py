@@ -256,24 +256,31 @@ class General:
         emb.set_footer(text=emoji.url)
         await ctx.send(embed=emb)
 
-    @commands.command(name='learnpy')
-    async def learnpy(self, ctx):
+    @commands.command(name='boou')
+    async def boou(self, ctx, target: str):
+        chars = {'1': ':one:', '2': ':two:', '3': ':three:', '4': ':four:', '5': ':five:',
+                 '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:', '0': ':zero:'}
+        chars.update({c: f":regional_indicator_{c}:" for c in list('abcdefghijklmnopqrstuvwxyz')})
+        for char in target:
+            if char not in chars.keys():
+                await ctx.send(f"Invalid character(s): {char}")
+                return
+        emojis = self.bot.get_guild(146626123990564864).emojis
+        emojis = [discord.utils.get(emojis, name=n) for n in ["boou", "boou2", "boou3", "boou4", "boo"]]
+
+        def add_line(line):
+            return f"{emojis[4]}{''.join([f'{emojis[i % 4]}{line[i]}' for i in range(len(line))])}" \
+                   f"{emojis[len(line) % 4]}{emojis[4]}\n"
+
+        resp1 = add_line([emojis[4] for i in range(len(target))])
+        resp1 += add_line([chars[c] for c in list(target)])
+        resp2 = add_line([chars[c] for c in list(target)])
+        resp2 += add_line([emojis[4] for i in range(len(target))])
+
         await ctx.message.delete()
-        msg = """
-Well, I started here and everyone said I shouldn't bother with it because it has an old Python version, but for someone who's not just new to Python, but new to programming in general, use https://codecademy.com/.
-It's very interactive, and even though you can't really do anything with what you learn, it will familiarize you with the fundamentals.
-It's free. There are some other resources that you can use afterwards, but I would suggest starting here.
-http://python.swaroopch.com/ (for complete beginners to programming)
-https://learnxinyminutes.com/docs/python3/ (for people who know programming already)
-https://docs.python.org/3.5/tutorial/ (for the in-between group, i.e. knows some programming but not a lot)
-see also: http://www.codeabbey.com/ (exercises for beginners)
-http://www.learnpython.org/ (somewhat interactive tutorial)
-Also, this guy's video tutorials are excellent.
-https://www.youtube.com/playlist?list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7
-https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU
-https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
-"""
-        await ctx.send(msg)
+        await ctx.send(resp1)
+        await asyncio.sleep(0.1)
+        await ctx.send(resp2)
 
     @commands.command(name='embed')
     async def _embed(self, ctx, *, args: str=None):
