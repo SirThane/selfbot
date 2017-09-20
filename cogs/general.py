@@ -258,35 +258,55 @@ class General:
 
     @commands.command(name='boou')
     async def boou(self, ctx, *, target: str):
+        """Boo dat guy, but with S T Y L E"""
         chars = {'1': ':one:', '2': ':two:', '3': ':three:', '4': ':four:', '5': ':five:',
                  '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:', '0': ':zero:'}
         chars.update({c: f":regional_indicator_{c}:" for c in list('abcdefghijklmnopqrstuvwxyz')})
 
         lines = target.split(' ')
 
+        invalid = []
         for line in lines:
             for char in line:
                 if char not in chars.keys():
-                    await ctx.send(f"Invalid character(s): {char}")
-                    return
+                    invalid.append(char)
+        if invalid:
+            await ctx.send(f"Invalid character(s): {', '.join('(**{}**)'.format(invalid))}")
+            return
 
         emojis = self.bot.get_guild(146626123990564864).emojis
         emojis = [discord.utils.get(emojis, name=n) for n in ["boou", "boou2", "boou3", "boou4", "boo"]]
+        chars['#'] = emojis[4]
 
         def add_line(line):
             return f"{emojis[4]}{''.join([f'{emojis[i % 4]}{line[i]}' for i in range(len(line))])}" \
-                   f"{emojis[len(line) % 4]}{emojis[4]}\n"
+                   f"{emojis[len(line) % 4]}{emojis[4]}"
 
         m = max(map(len, lines))
+
+        for i in range(len(lines) - 1):
+            try:
+                if len(lines[i]) + len(lines[i + 1]) + 1 <= m:
+                    lines[i] += f"#{lines.pop(i + 1)}"
+            except IndexError:
+                break
+
         lines = [[chars[c.lower()] for c in line] + ([emojis[4]] * (m - len(line))) for line in lines]
 
-        resp = add_line([emojis[4] for i in range(m)])
-        for line in lines:
-            resp += add_line(line)
-        resp += add_line([emojis[4] for i in range(m)])
+        # resp = add_line([emojis[4] for i in range(m)])
+        # for line in lines:
+        #     resp += add_line(line)
+        # resp += add_line([emojis[4] for i in range(m)])
+
+        resp = "\n{}\n".format('\n'.join(list(map(add_line, lines)))).join([add_line([emojis[4]] * m)] * 2)
 
         await ctx.message.delete()
-        await ctx.send(resp)
+        # await ctx.send(resp)
+
+        pag = utils.Paginator(page_limit=2000, trunc_limit=2000)
+        for l in pag.paginate(resp):
+            await ctx.send(l)
+            await asyncio.sleep(0.1)
 
     @commands.command(name='embed')
     async def _embed(self, ctx, *, args: str=None):

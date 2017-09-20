@@ -75,7 +75,7 @@ def get_timestamp():
 
 class Paginator:
 
-    def __init__(self, page_limit=1000, trunc_limit=2000, headers=None, header_extender=u'\u200b'):
+    def __init__(self, page_limit: int=1000, trunc_limit: int=2000, headers=None, header_extender=u'\u200b'):
         self.page_limit = page_limit
         self.trunc_limit = trunc_limit
         self._pages = None
@@ -99,7 +99,7 @@ class Paginator:
 
     def _extend_headers(self, length: int):
         while len(self._headers) < length:
-            self._headers.append(u'\u200b')
+            self._headers.append(self._header_extender)
 
     def set_trunc_limit(self, limit: int=2000):
         self.trunc_limit = limit
