@@ -89,7 +89,7 @@ class Paginator:
             headers, self._headers = self._headers, None
             return [(headers[i], self._pages[i]) for i in range(len(self._pages))]
         else:
-            return self.pages
+            return self._pages
 
     def set_headers(self, headers=None):
         self._headers = headers

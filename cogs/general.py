@@ -263,7 +263,7 @@ class General:
                  '6': ':six:', '7': ':seven:', '8': ':eight:', '9': ':nine:', '0': ':zero:'}
         chars.update({c: f":regional_indicator_{c}:" for c in list('abcdefghijklmnopqrstuvwxyz')})
 
-        lines = target.split(' ')
+        lines = target.lower().split(' ')
 
         invalid = []
         for line in lines:
@@ -276,7 +276,7 @@ class General:
 
         emojis = self.bot.get_guild(146626123990564864).emojis
         emojis = [discord.utils.get(emojis, name=n) for n in ["boou", "boou2", "boou3", "boou4", "boo"]]
-        chars['#'] = emojis[4]
+        chars[' '] = emojis[4]
 
         def add_line(line):
             return f"{emojis[4]}{''.join([f'{emojis[i % 4]}{line[i]}' for i in range(len(line))])}" \
@@ -287,24 +287,17 @@ class General:
         for i in range(len(lines) - 1):
             try:
                 if len(lines[i]) + len(lines[i + 1]) + 1 <= m:
-                    lines[i] += f"#{lines.pop(i + 1)}"
+                    lines[i] += f" {lines.pop(i + 1)}"
             except IndexError:
                 break
 
         lines = [[chars[c.lower()] for c in line] + ([emojis[4]] * (m - len(line))) for line in lines]
 
-        # resp = add_line([emojis[4] for i in range(m)])
-        # for line in lines:
-        #     resp += add_line(line)
-        # resp += add_line([emojis[4] for i in range(m)])
-
-        resp = "\n{}\n".format('\n'.join(list(map(add_line, lines)))).join([add_line([emojis[4]] * m)] * 2)
+        resp = u"\n{}\n\u200b".format('\n'.join(list(map(add_line, lines)))).join([add_line([emojis[4]] * m)] * 2)
 
         await ctx.message.delete()
-        # await ctx.send(resp)
 
-        pag = utils.Paginator(page_limit=2000, trunc_limit=2000)
-        for l in pag.paginate(resp):
+        for l in utils.Paginator(page_limit=2000, trunc_limit=8000).paginate(str(resp)):
             await ctx.send(l)
             await asyncio.sleep(0.1)
 
