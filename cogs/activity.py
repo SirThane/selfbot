@@ -24,7 +24,7 @@ from .utils import checks
 <ns>:guilds:<guild_id>                                      # HASH for guild configuration
     cooldown                                                # Cooldown duration
     weight                                                  # Default weight
-    pad_amount                                              # Number of messages new members will be padded with
+    pad_amount                                              # Number of messages new members will be padded with or
                                                             # 0 to disable
     score_period                                            # Number of days for which messages count towards score
     prune_period                                            # Number of days beyond which messages are pruned out of DB
@@ -61,6 +61,28 @@ class ActivityMonitor:
         self._recorded_members = self._load_guild_member_cache_from_db()
         self._guilds = set([int(i) for i in self.db.smembers(f'{self.ns}:guilds')])
 
+        # self._selected_guild = None
+        # self._selected_channel = None
+
+        self._config_slots = {
+            'global': [
+                'cooldown_default',
+                'pad_amount_default',
+                'score_period_default',
+                'prune_period_default'
+            ],
+            'guild': [
+                'cooldown',
+                'weight',
+                'pad_amount',
+                'score_period',
+                'prune_period',
+            ],
+            'channel': [
+                'cooldown',
+                'weight',
+            ],
+        }
         self._builtin_defaults = {
             'cooldown': 5,
             'score_period': 90,
@@ -70,7 +92,9 @@ class ActivityMonitor:
             'pad_amount': 30
         }
 
+    ####################################################################################################################
     # Get (and cache) DB records and configs
+    ####################################################################################################################
 
     def _load_guild_member_cache_from_db(self):
         recorded_members = {}
@@ -92,7 +116,7 @@ class ActivityMonitor:
                 pad_enabled = False
         return pad_enabled
 
-    def get_pad_amount(self, guild_id):  # TODO: MAKE SURE IT'S INT. if '0' IS True
+    def get_pad_amount(self, guild_id):  # TODO: MAKE SURE IT'S INT. if '0' IS True. if 0 IS False.
         try:
             pad_amount = self._pad_amount[guild_id]
         except KeyError:
@@ -106,7 +130,7 @@ class ActivityMonitor:
                 else:
                     pad_amount = self._builtin_defaults['pad_amount']
                     self._pad_amount[guild_id] = pad_amount
-        return pad_amount
+        return int(pad_amount)
 
     def get_cooldown_dur(self, guild_id, channel_id):
         """Returns cooldown duration for a channel.
@@ -160,6 +184,10 @@ class ActivityMonitor:
             self.db.sadd(f"{self.ns}:guilds:{guild_id}:members", str(member_id))
             return True
 
+    ####################################################################################################################
+    # Cooldown and cooldown check
+    ####################################################################################################################
+
     async def put_cooldown(self, member_id, channel_id, dur):
         s = (member_id, channel_id)
         self.cooldown.add(s)
@@ -183,7 +211,9 @@ class ActivityMonitor:
 
         return self.check_cooldown(m.author, m.channel)
 
+    ####################################################################################################################
     # Normal processing
+    ####################################################################################################################
 
     async def on_message(self, m):
         # Looks like ctx.created_at.timestamp() is datetime.datetime.utcnow()
@@ -216,7 +246,40 @@ class ActivityMonitor:
         self.db.zadd(f'{self.ns}:guilds:{guild_id}:members:{member_id}:pad',
                      **{str((pad_amount - i)): str((ts - (td * i)).timestamp()) for i in range(pad_amount)})
 
+    ####################################################################################################################
+    # Subroutines
+    ####################################################################################################################
+
+    def color(self, name: str="blurple"):
+        """Helper function to get discord.Colour color."""
+        return getattr(discord.Colour, name)()
+
+    def msg(self, *, title: str=None, msg: str, level=0):
+        """Sends a notification message for command completion"""
+        color = ['blue', 'orange', 'red']
+        icon = ["ℹ", "⚠", "⛔"]
+        return discord.Embed(title=title, description=f"{icon[level]}  {msg}", color=self.color(color[level]))
+
+    def table_space_formatting(self, slots, **values):
+        # db = self.db.hgetall(key)  # TODO: Handle the db getting outside of here
+        spaced = [f"{i}{' ' * (max(map(len, slots)) - len(i))}" for i in slots]
+        return "\n".join([f"{spaced[i]} : {values.get(slots[i], 'Not Defined')}" for i in range(len(slots))])
+
+    def get_config(self, scope, key, name=None):
+        slots = self._config_slots[scope]
+        name = f" for: {name}" if name else ""
+        emb = discord.Embed(title=f"{scope.capitalize()} Configs{name}",
+                            description=f"```\n{self.config_format(slots, key)}\n```\nUse `config"
+                                        f" set` to change a configuration.",
+                            color=self.color('dark_grey'))
+        return emb
+
+    def get_channel_config(self):
+        pass
+
+    ####################################################################################################################
     # Configuration commands
+    ####################################################################################################################
 
     @commands.group(name='activity', aliases=['metrics'], invoke_without_command=True)
     async def activity(self, ctx):
@@ -225,8 +288,11 @@ class ActivityMonitor:
         See help page for subcommands for more details"""
         await self.bot.formatter.format_help_for(ctx, ctx.command)
 
+    ####################################################################################################################
     # Global config
+    ####################################################################################################################
 
+    @checks.sudo()
     @activity.group(name='config', invoke_without_command=True)
     async def a_config(self, ctx):
         """Set and view global default configurations
@@ -236,57 +302,73 @@ class ActivityMonitor:
 
         Use this command without `set` subcommand to
         view all current global defaults"""
-        pass  # List all global default configs
+        await ctx.send(embed=self.get_config('global', f"{self.ns}:config"))
 
     @checks.sudo()
-    @a_config.command(name='set')
+    @a_config.group(name='set', invoke_without_command=True)
     async def a_set(self, ctx, key: str, value: int):
         """Set a global default configuration
 
-        """
+        Available values to set are:
+        ```
+        cooldown_default
+        pad_amount_default
+        score_period_default
+        prune_period_default
+        ```"""
         pass  # Set a global default config
 
+    ####################################################################################################################
     # Guild config
+    ####################################################################################################################
 
     @activity.group(name='guild', invoke_without_command=True)
     async def a_guild(self, ctx):
-        pass  # List all guild configs # TODO: CREATE SUBROUTINE THAT `activity guild config` CAN ALSO CALL
+        """Manage tracked guilds
+
+        Available values to set are:
+        ```
+        cooldown
+        weight
+        pad_amount
+        score_period
+        prune_period
+        ```"""
+        await ctx.send(embed=self.get_config('guild', f"{self.ns}:guilds:{ctx.guild.id}", ctx.guild.name))
 
     @a_guild.command(name='enable')
     async def g_enable(self, ctx):
-        guild = ctx.guild.id
-        if self.db.sismember(f'{self.ns}:guilds', guild):
-            g = self.bot.get_guild(id=guild)
-            em = discord.Embed(title="User Metrics",
-                               description=f"Activity monitor already active on guild {g.name}",
-                               color=discord.Colour.red())
-            resp = await ctx.send(embed=em)
-            await asyncio.sleep(5)
-            await resp.delete()
+        """Enable Activity Monitor on a guild"""
+        if ctx.guild.id in self._guilds:
+            em = self.msg(msg=f"Activity monitor already active on guild {ctx.guild.name}", level=1)
         else:
-            g = self.bot.get_guild(id=guild)
-            if g:
-                self.db.sadd(f'{self.ns}:guilds', guild)
-                em = discord.Embed(title="User Metrics",
-                                   description=f"Activity monitor active on guild {g.name}",
-                                   color=discord.Colour.green())
-                resp = await ctx.send(embed=em)
-                await asyncio.sleep(5)
-                await resp.delete()
+            self._guilds.add(ctx.guild.id)
+            self.db.sadd(f'{self.ns}:guilds', ctx.guild.id)
+            em = self.msg(msg=f"Activity monitor active on guild {ctx.guild.name}")
+        await ctx.send(embed=em)
 
     @a_guild.command(name='disable')
     async def g_disable(self, ctx):
-        pass  # Enable on current guild
+        """Disable Activity Monitor on a guild"""
+        if ctx.guild.id in self._guilds:
+            self._guilds.remove(ctx.guild.id)
+            self.db.srem(f'{self.ns}:guilds', str(ctx.guild.id))
+            em = self.msg(msg=f"Activity monitor disabled on guild {ctx.guild.name}")
+        else:
+            em = self.msg(msg=f"Activity monitor not active on guild {ctx.guild.name}", level=1)
+        await ctx.send(embed=em)
 
     @a_guild.group(name='config', invoke_without_command=True)
     async def g_config(self, ctx):
-        pass  # List all guild configs
+        await ctx.send(embed=self.get_config('guild', f"{self.ns}:guilds:{ctx.guild.id}", ctx.guild.name))
 
-    @g_config.group(name='set')
+    @g_config.group(name='set', invoke_without_command=True)
     async def g_set(self, ctx, key: str, value: int):
         pass  # Set a guild config
 
+    ####################################################################################################################
     # Channel config
+    ####################################################################################################################
 
     @activity.group(name='channel')
     async def a_channel(self, ctx):
@@ -294,7 +376,7 @@ class ActivityMonitor:
 
     @a_channel.group(name='config', invoke_without_command=True)
     async def c_config(self, ctx, *, channel: discord.TextChannel):
-        await self.bot.formatter.format_help_for(ctx, ctx.command, "Channel must be a guild text channel.")
+        pass
 
     @a_channel.command(name='set')
     async def c_set(self, ctx, key: str, value: int):
